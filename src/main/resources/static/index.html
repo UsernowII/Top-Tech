@@ -3,18 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <title>Login Prototipo</title>
-    <link rel="stylesheet" href="index.css">
-    <div id="imagen">
-    <img src="imagen/logo.png">
-    </div>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="clientes.css">
+   
+
 </head>
 
 <body>
+    <header>
+        Logo, Navegacion, barra busqueta, menu superior
+        <div id="logo" class="logo">
+            <img src="imagen/logo.png">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#"><img src="/icono-home.png" alt="Icono Home"></a></li>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Inicio</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="titulo">
+            <h2 class="h2-bienvenido">Bienvenido</h2>
+        </section> <!-- END class="titulo"-->
+
+        <section class="formulario">
+            <form>
+                <div class="estilo-input-formulario">
+                    <label for="User">Usuario</label>
+                    <input type="text" id="idUser" name="nomUser" placeholder="Usuario *" pattern="^[^0-9]+$">
+                </div>
+                    
+                <div>
+                    <label for="Pass">Contraseña</label>
+                    <input type="password" id="idPass" name="pass"  placeholder="Contraseña *" >  
+                </div>               
+                <div>
+                    <button type="button" id="btnLogin">Iniciar Sesión</button>
+                </div>
+            </form>  
+        </section> <!-- END class="formulario"-->
+
+
+        <!--<section class="bienvenida">
+            <article>
+                        <h2 class="h2-bienvenido">Bienvenido</h2>
+            </article>
+            <article>
+                <h1></h1>
+                <p></p>
+                <img src="">
+                <button></button>
+            </article>
+        </section>
+
+         <section class="Informacion">
+            <article>
+                <h2>Hola</h2>
+            </article>
+            <article>
+                <h1></h1>
+                <p></p>
+                <img src="">
+                <button></button>
+            </article>
+        </section>
+
+        <div class="informacion">
+            <p class="meta-datos">
+                Hora
+            </p>
+            <p class="contenido">
+                Hola!
+                <div class="meta-datos">
+                    Otro metadados
+                </div>
+                <img src="" class="meta-datos">
+            </p>
+        </div>
+
+        <aside>
+            
+        </aside>-->
+        <footer>
+        </footer>
+    </main>
+
+    <footer>
+        <div class="col-3">
+            <p>Todos los derchos</p>
+        </div>
+        <div class="col-3">
+            <p>Informacion Contacto</p>
+        </div>
+        <div class="col-3">
+            <p>Menu inferior</p>
+        </div>
+        <div class="col-3">
+            <p>Siguenos en RRSS</p>
+        </div>
+    </footer>
+
+    
     <!-- Estructura Login -->
     <!-- Contenedor principal-->
     <div id="main-container">
-        <!-- Menú -->
-        <div id="subTittle"><h2> Bienvenido </h2></div>
         <header>
             <div id="Menu">
                 <!-- Lista -->
@@ -22,22 +118,22 @@
                     <div id="container-form">
                     <form">
 
-                    <p><label for="User"> Usuario </label></p>
-                    <input type="text" id="idUser" name="nomUser" placeholder="Usuario *" pattern="^[^0-9]+$">
-                    
-                    <p><label for="Pass"> Contraseña </label></p>
-                    <input type="password" id="idPass" name="pass"  placeholder="Contraseña *" >      
-                    <!--             
-                    <p><label for="List-roll"> Roll </label></p>
-                    <select id="idRoll" name="DownList-Roll">
-                        <option selected value="0"> -- Seleccione su Roll -- </option>
-                        <option value="1"> Usuario </option>
-                        <option value="2"> Administrador </option>
-                    </select>   -->                     
-                    <p><button type="button" id="btnLogin"> Iniciar Sesión </button></p>
-                </div>
-                </ul>
-            </form>  
+                        <p><label for="User"> Usuario </label></p>
+                        <input type="text" id="idUser" name="nomUser" placeholder="Usuario *" pattern="^[^0-9]+$">
+                            
+                        <p><label for="Pass"> Contraseña </label></p>
+                        <input type="password" id="idPass" name="pass"  placeholder="Contraseña *" >      
+                            <!--             
+                            <p><label for="List-roll"> Roll </label></p>
+                            <select id="idRoll" name="DownList-Roll">
+                                <option selected value="0"> -- Seleccione su Roll -- </option>
+                                <option value="1"> Usuario </option>
+                                <option value="2"> Administrador </option>
+                            </select>   -->                     
+                            <p><button type="button" id="btnLogin"> Iniciar Sesión </button></p>
+                        </div>
+                        </ul>
+                    </form>  
             </div>
         </div>
         </header>
