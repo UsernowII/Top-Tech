@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Prototipo</title>
+    <link rel="stylesheet" href="index.css">
+    <div id="imagen">
+    <img src="imagen/logo.png">
+    </div>
+</head>
+
+<body>
+    <!-- Estructura Login -->
+    <!-- Contenedor principal-->
+    <div id="main-container">
+        <!-- Menú -->
+        <div id="subTittle"><h2> Bienvenido </h2></div>
+        <header>
+            <div id="Menu">
+                <!-- Lista -->
+                <ul>
+                    <div id="container-form">
+                    <form">
+
+                    <p><label for="User"> Usuario </label></p>
+                    <input type="text" id="idUser" name="nomUser" placeholder="Usuario *" pattern="^[^0-9]+$">
+                    
+                    <p><label for="Pass"> Contraseña </label></p>
+                    <input type="password" id="idPass" name="pass"  placeholder="Contraseña *" >      
+                    <!--             
+                    <p><label for="List-roll"> Roll </label></p>
+                    <select id="idRoll" name="DownList-Roll">
+                        <option selected value="0"> -- Seleccione su Roll -- </option>
+                        <option value="1"> Usuario </option>
+                        <option value="2"> Administrador </option>
+                    </select>   -->                     
+                    <p><button type="button" id="btnLogin"> Iniciar Sesión </button></p>
+                </div>
+                </ul>
+            </form>  
+            </div>
+        </div>
+        </header>
+    <footer id="footer">     <p>MinTic 2021 - Universidad del Bosque </p>    </footer>
+</body>
+</html>
