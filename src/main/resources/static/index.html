@@ -1,142 +1,43 @@
 <!DOCTYPE html>
-<html lang="es">
+<html  lang="es" xmlns:th="http://www.thymeLeaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Login Prototipo</title>
-    <link rel="stylesheet" href="main.css">
-    <link rel="stylesheet" href="clientes.css">
-   
-
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <title>Login</title>
 </head>
-
 <body>
-    <header>
-        Logo, Navegacion, barra busqueta, menu superior
-        <div id="logo" class="logo">
-            <img src="imagen/logo.png">
-        </div>
-        <nav>
-            <ul>
-                <li><a href="#"><img src="/icono-home.png" alt="Icono Home"></a></li>
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">Inicio</a></li>
-            </ul>
-        </nav>
-    </header>
+<h1>Registro Usuarios</h1>
+<div class="container mt=4">
+    <table>
+        <thead>
+        <tr>
+            <th>CEDULA</th>
+            <th>NOMBRE</th>
+            <th>CORREO</th>
+            <th>USUARIO</th>
+            <th>PASSWORD</th>
+            <th>ACCIONES</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="users:$users">
+            <td th:text="${users.id}"></td>
+            <td th:text="${users.nameUser}"></td>
+            <td th:text="${users.emailUser}"></td>
+            <td th:text="${users.user}"></td>
+            <td th:text="${users.password}"></td>
+            <td>
+                <a class="btn btn-warning" >Editar</a>
+                <a class="btn btn-danger">Eliminar</a>
+            </td>
+        </tr>
+        </tbody>
 
-    <main>
-        <section class="titulo">
-            <h2 class="h2-bienvenido">Bienvenido</h2>
-        </section> <!-- END class="titulo"-->
+    </table>
 
-        <section class="formulario">
-            <form>
-                <div class="estilo-input-formulario">
-                    <label for="User">Usuario</label>
-                    <input type="text" id="idUser" name="nomUser" placeholder="Usuario *" pattern="^[^0-9]+$">
-                </div>
-                    
-                <div>
-                    <label for="Pass">Contraseña</label>
-                    <input type="password" id="idPass" name="pass"  placeholder="Contraseña *" >  
-                </div>               
-                <div>
-                    <button type="button" id="btnLogin">Iniciar Sesión</button>
-                </div>
-            </form>  
-        </section> <!-- END class="formulario"-->
+</div>
+</body>
+</html>
 
-
-        <!--<section class="bienvenida">
-            <article>
-                        <h2 class="h2-bienvenido">Bienvenido</h2>
-            </article>
-            <article>
-                <h1></h1>
-                <p></p>
-                <img src="">
-                <button></button>
-            </article>
-        </section>
-
-         <section class="Informacion">
-            <article>
-                <h2>Hola</h2>
-            </article>
-            <article>
-                <h1></h1>
-                <p></p>
-                <img src="">
-                <button></button>
-            </article>
-        </section>
-
-        <div class="informacion">
-            <p class="meta-datos">
-                Hora
-            </p>
-            <p class="contenido">
-                Hola!
-                <div class="meta-datos">
-                    Otro metadados
-                </div>
-                <img src="" class="meta-datos">
-            </p>
-        </div>
-
-        <aside>
-            
-        </aside>-->
-        <footer>
-        </footer>
-    </main>
-
-    <footer>
-        <div class="col-3">
-            <p>Todos los derchos</p>
-        </div>
-        <div class="col-3">
-            <p>Informacion Contacto</p>
-        </div>
-        <div class="col-3">
-            <p>Menu inferior</p>
-        </div>
-        <div class="col-3">
-            <p>Siguenos en RRSS</p>
-        </div>
-    </footer>
-
-    
-    <!-- Estructura Login -->
-    <!-- Contenedor principal-->
-    <div id="main-container">
-        <header>
-            <div id="Menu">
-                <!-- Lista -->
-                <ul>
-                    <div id="container-form">
-                    <form">
-
-                        <p><label for="User"> Usuario </label></p>
-                        <input type="text" id="idUser" name="nomUser" placeholder="Usuario *" pattern="^[^0-9]+$">
-                            
-                        <p><label for="Pass"> Contraseña </label></p>
-                        <input type="password" id="idPass" name="pass"  placeholder="Contraseña *" >      
-                            <!--             
-                            <p><label for="List-roll"> Roll </label></p>
-                            <select id="idRoll" name="DownList-Roll">
-                                <option selected value="0"> -- Seleccione su Roll -- </option>
-                                <option value="1"> Usuario </option>
-                                <option value="2"> Administrador </option>
-                            </select>   -->                     
-                            <p><button type="button" id="btnLogin"> Iniciar Sesión </button></p>
-                        </div>
-                        </ul>
-                    </form>  
-            </div>
-        </div>
-        </header>
-    <footer id="footer">     <p>MinTic 2021 - Universidad del Bosque </p>    </footer>
 </body>
 </html>
