@@ -1,4 +1,4 @@
-package com.unbosque.store;
+package com.edu.unbosque.store;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

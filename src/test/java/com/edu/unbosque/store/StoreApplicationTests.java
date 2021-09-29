@@ -1,4 +1,4 @@
-package com.unbosque.store;
+package com.edu.unbosque.store;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

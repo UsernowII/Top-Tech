@@ -1,4 +1,4 @@
-package com.unbosque.store.api;
+package com.edu.unbosque.store.util;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -20,7 +20,7 @@ public class SwaggerConfig {
     public Docket apiDocket() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.unbosque.store.api"))
+                .apis(RequestHandlerSelectors.basePackage("com.unbosque.store.controller"))
                 .paths(PathSelectors.any())
                 .build()
                 .apiInfo(getApiInfo())
@@ -40,4 +40,3 @@ public class SwaggerConfig {
         );
     }
 }
-
