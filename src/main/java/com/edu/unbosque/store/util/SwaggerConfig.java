@@ -20,7 +20,7 @@ public class SwaggerConfig {
     public Docket apiDocket() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.unbosque.store.controller"))
+                .apis(RequestHandlerSelectors.basePackage("com.edu.unbosque.store.controller"))
                 .paths(PathSelectors.any())
                 .build()
                 .apiInfo(getApiInfo())
