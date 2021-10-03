@@ -17,7 +17,6 @@ public class UserServiceImp implements UserService {
     private IUser data;
 
 
-
     @Override
     public List<User> listar() {
         return (List<User>) data.findAll();
@@ -25,7 +24,17 @@ public class UserServiceImp implements UserService {
 
     @Override
     public Optional<User> getUserId(int id) {
-        return Optional.empty();
+        return data.findById(id);
+    }
+
+    @Override
+    public int save(User user) {
+        int res = 0;
+        User u = data.save(user);
+        if(!u.equals(null)){
+            res =1;
+        }
+        return res;
     }
 
     @Override
@@ -33,13 +42,4 @@ public class UserServiceImp implements UserService {
         data.deleteById(id);
     }
 
-    @Override
-    public void save(User user) {
-        data.save(user);
-    }
-
-    @Override
-    public void update(User user) {
-        data.save(user);
-    }
 }
