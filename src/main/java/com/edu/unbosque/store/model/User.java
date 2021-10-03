@@ -16,7 +16,7 @@ public class User {
 
     @Id
     @Getter @Setter @Column(name = "id_user")
-    private long id;
+    private int id;
 
     @Getter @Setter @Column(name = "name_user")
     private String nameUser;
@@ -28,7 +28,7 @@ public class User {
     private String password;
 
     @Getter @Setter @Column(name = "user")
-    private String user;
+    private String nick;
 
 
 }

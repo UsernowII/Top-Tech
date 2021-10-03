@@ -3,15 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
-          rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
-          crossorigin="anonymous">
+          rel="stylesheet" >
 
     <title>Usuarios</title>
 </head>
 <body>
-<h1>Registro Usuarios</h1>
-<div class="container mt=4">
-    <table class="table table-dark">
+
+<nav class="navbar navbar-light bg-light justify-content-between px-5">
+    <a class="navbar-brand"><h2>Listado de Usuarios</h2></a>
+    <form class="form-inline">
+        <input class="form-control mr-sm-2 " type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0 py-2" type="submit">Buscar</button>
+    </form>
+</nav>
+<div class="container mt=4 mt=4 table-responsive-lg">
+    <a th:href="@{/nuevo}" class="btn btn-dark my-3 py-2 text-center"> <i class="fas fa-plus"></i> Agregar</a>
+    <table class="table table-dark table-hover">
         <thead>
         <tr>
             <th>CEDULA</th>
@@ -23,21 +30,21 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each="user:${users}">
-            <td th:text="${user.id}"></td>
-            <td th:text="${user.nameUser}"></td>
-            <td th:text="${user.emailUser}"></td>
-            <td th:text="${user.user}"></td>
-            <td th:text="${user.password}"></td>
-            <td>
-                <a class="btn btn-warning" >Editar</a>
-                <a class="btn btn-danger">Eliminar</a>
-            </td>
-        </tr>
+            <tr th:each="u:${users}">
+                <td th:text="${u.id}"></td>
+                <td th:text="${u.nameUser}"></td>
+                <td th:text="${u.emailUser}"></td>
+                <td th:text="${u.nick}"></td>
+                <td th:text="${u.password}"></td>
+                <td>
+                    <a th:href="@{/editar/}+${u.id}" class="btn btn-warning" >Editar</a>
+                    <a th:href="@{/eliminar/}+${u.id}" class="btn btn-danger">Eliminar</a>
+                </td>
+            </tr>
         </tbody>
-
     </table>
 
 </div>
+<script src="https://kit.fontawesome.com/62ea397d3a.js" crossorigin="anonymous"></script>
 </body>
 </html>

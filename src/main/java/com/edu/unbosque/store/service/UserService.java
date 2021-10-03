@@ -11,9 +11,9 @@ public interface UserService {
 
      List<User> listar();
      Optional<User> getUserId(int id);
+     int save(User user);
      void delete(int id);
-     void save(User user);
-     void update(User user);
+
 
 
 }
