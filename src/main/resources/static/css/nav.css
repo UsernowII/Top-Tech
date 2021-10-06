@@ -11,14 +11,14 @@ body{
 
 *{
     box-sizing: border-box;
-    
+
 }
 
 
 /*****************
  * HEADER
  * **************/
- nav {
+nav {
     background: rgb(3,83,145);
     background: -moz-radial-gradient(circle, rgba(3,83,145,1) 0%, rgba(1,29,48,1) 100%);
     background: -webkit-radial-gradient(circle, rgba(3,83,145,1) 0%, rgba(1,29,48,1) 100%);
@@ -26,13 +26,13 @@ body{
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#035391",endColorstr="#011d30",GradientType=1);
     border-bottom-left-radius: 50px;
     border-bottom-right-radius: 50px;
- }
+}
 nav ul li {
     padding-left:  25px;
     padding-right:  25px;
     border-right: 1px solid #d2fcfa;
 }
-    nav ul li:last-child {
+nav ul li:last-child {
     border-right: 0;
 }
 nav ul li .nav-link {

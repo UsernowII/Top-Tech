@@ -10,35 +10,37 @@
 <body>
 
 <nav class="navbar navbar-light bg-light justify-content-between px-5">
-    <a class="navbar-brand"><h2>Listado de Usuarios</h2></a>
+    <a class="navbar-brand"><h2>Listado de Productos</h2></a>
     <form class="form-inline">
         <input class="form-control mr-sm-2 " type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success my-2 my-sm-0 py-2" type="submit">Buscar</button>
     </form>
 </nav>
 <div class="container mt=4 mt=4 table-responsive-lg">
-    <a th:href="@{/usuario/nuevo}" class="btn btn-dark my-3 py-2 text-center"> <i class="fas fa-plus"></i> Agregar</a>
+    <a th:href="@{/producto/nuevo}" class="btn btn-dark my-3 py-2 text-center"> <i class="fas fa-plus"></i> Agregar</a>
     <table class="table table-dark table-hover">
         <thead>
         <tr>
-            <th>CEDULA</th>
-            <th>NOMBRE</th>
-            <th>CORREO</th>
-            <th>USUARIO</th>
-            <th>PASSWORD</th>
+            <th>CODIGO</th>
+            <th>NAME</th>
+            <th>NIT</th>
+            <th>PRECIO COMPRA</th>
+            <th>IVA COMPRA</th>
+            <th>PRECIO VENTA</th>
             <th>ACCIONES</th>
         </tr>
         </thead>
         <tbody>
-            <tr th:each="u:${users}">
-                <td th:text="${u.id}"></td>
-                <td th:text="${u.nameUser}"></td>
-                <td th:text="${u.emailUser}"></td>
-                <td th:text="${u.nick}"></td>
-                <td th:text="${u.password}"></td>
+            <tr th:each="p:${products}">
+                <td th:text="${p.idCode}"></td>
+                <td th:text="${p.productName}"></td>
+                <td th:text="${p.idProvider}"></td>
+                <td th:text="${p.priceProduct}"></td>
+                <td th:text="${p.iva}"></td>
+                <td th:text="${p.priceSell}"></td>
                 <td>
-                    <a th:href="@{/usuario/editar/}+${u.id}" class="btn btn-warning" >Editar</a>
-                    <a th:href="@{/usuario/eliminar/}+${u.id}" class="btn btn-danger">Eliminar</a>
+                    <a th:href="@{/producto/editar/}+${p.idCode}" class="btn btn-warning" >Editar</a>
+                    <a th:href="@{/producto/eliminar/}+${p.idCode}" class="btn btn-danger">Eliminar</a>
                 </td>
             </tr>
         </tbody>

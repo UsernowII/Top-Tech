@@ -7,7 +7,7 @@
 </head>
 <body>
 <div class="px-5 py-3">
-    <form th:action="@{/guardar}" th:object=${userNew} method="POST" autocomplete="on" >
+    <form th:action="@{/usuario/guardar}" th:object="${userNew}" method="POST" autocomplete="on" >
         <div class="row mb-3">
             <label class="col-form-label col-sm-2">Cedula</label>
             <div class="col-sm-4">
@@ -35,7 +35,7 @@
         <div class="row mb-3">
             <label class="col-form-label col-sm-2">Password</label>
             <div class="col-sm-4">
-                <input th:field="*{password}" type="password" class="form-control">
+                <input th:field="*{password}" type="text" class="form-control">
             </div>
         </div>
 
@@ -43,7 +43,7 @@
         <div class="row mb-3">
             <div>
                 <input type="submit" value="Guardar" class="btn btn-success">
-                <a th:href="@{/listar}"><button class="btn btn-danger">Cancelar</button></a>
+                <a th:href="@{/usuario/listar}" class="btn btn-danger">Cancelar</a>
             </div>
         </div>
     </form>

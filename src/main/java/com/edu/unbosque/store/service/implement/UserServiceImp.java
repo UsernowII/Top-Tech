@@ -5,9 +5,10 @@ import com.edu.unbosque.store.repository.IUser;
 import com.edu.unbosque.store.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Optional;
+
 
 
 @Service
@@ -21,24 +22,25 @@ public class UserServiceImp implements UserService {
     public List<User> listar() {
         return (List<User>) data.findAll();
     }
-
+    /**
     @Override
-    public Optional<User> getUserId(int id) {
+    public Optional<User> getUserId(long id) {
         return data.findById(id);
+    }*/
+
+    @Override
+    @Transactional(readOnly = true)
+    public User getUserId(User user){
+        return data.findById(user.getId()).orElse(null);
     }
 
     @Override
-    public int save(User user) {
-        int res = 0;
+    public void save(User user) {
         User u = data.save(user);
-        if(!u.equals(null)){
-            res =1;
-        }
-        return res;
     }
 
     @Override
-    public void delete(int id) {
+    public void delete(long id) {
         data.deleteById(id);
     }
 

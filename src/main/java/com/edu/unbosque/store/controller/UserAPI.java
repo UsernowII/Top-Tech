@@ -11,54 +11,63 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 
 import java.util.List;
-import java.util.Optional;
 
-
+@RequestMapping
 @Controller
 public class UserAPI {
 
     @Autowired
     private UserService userService;
 
+    @GetMapping("/")
+    public String inicio(){
+        return "index";
+    }
+
+    @GetMapping("/nav")
+    public String nav(){
+        return "nav";
+    }
     /**
      * Handle the root (/) and return start page Login
      * @param model data spring boot
      * @return index
      */
-    @GetMapping("/listar")
+    @GetMapping("/usuario/listar")
     public String read(Model model){
         List<User> users = userService.listar();
         model.addAttribute("users",users);
         return "usuarios";
     }
 
-    @GetMapping("/nuevo")
+    @GetMapping("/usuario/nuevo")
     public String create(Model model) {
         model.addAttribute("userNew", new User());
-        return "form";
+        return "formUser";
     }
 
 
-    @PostMapping("/guardar")
+    @PostMapping("/usuario/guardar")
     public String save(@Validated User p, Model model) {
         userService.save(p);
-        return "redirect:/listar";
+        return "redirect:/usuario/listar";
     }
 
-    @GetMapping("/editar/{id}")
-    public String update(@PathVariable int id, Model model) {
-        Optional<User> persona = userService.getUserId(id);
-        model.addAttribute("userNew", persona);
-        return "form";
+    @GetMapping("/usuario/editar/{id}")
+    public String update(User user, Model model) {
+        user = userService.getUserId(user);
+        model.addAttribute("userNew", user);
+        return "formUser";
     }
 
-    @GetMapping("/eliminar/{id}")
-    public String delete(Model model, @PathVariable int id) {
+    @GetMapping("/usuario/eliminar/{id}")
+    public String delete(Model model, @PathVariable long id) {
         userService.delete(id);
-        return "redirect:/listar";
+        return "redirect:/usuario/listar";
     }
 
 }
