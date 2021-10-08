@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@700&display=swap');
+
+
+.btn-dark {
+    border-radius: 30px;
+    text-transform: uppercase;
+    font-family: 'Baloo 2', sans-serif;
+    background-color: #198754;
+    border: #198754;
+}
+
+thead {
+    color: rgba(3,83,145,1);
+    text-align: center;
+}
+thead th:last-child {
+    text-align: left;
+}
+.btn-warning, .btn-danger {
+    border-radius: 30px;
+    text-transform: uppercase;
+    font-family: 'Baloo 2', sans-serif;
+    width: 48%;
+}
