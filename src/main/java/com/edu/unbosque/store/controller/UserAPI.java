@@ -23,7 +23,7 @@ public class UserAPI {
     @Autowired
     private UserService userService;
 
-    @GetMapping("/")
+    @GetMapping({"/", "/login"})
     public String inicio(){
         return "index";
     }

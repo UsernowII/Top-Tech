@@ -4,6 +4,7 @@ import com.edu.unbosque.store.service.UserService;
 import com.edu.unbosque.store.repository.IUser;
 import com.edu.unbosque.store.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

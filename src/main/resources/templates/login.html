@@ -29,25 +29,9 @@
                     <i class="fas fa-key icon"></i>
                     <input type="password" placeholder="Contraseña" name="password" id="password">
                 </div>
-                <button type="submit" id="btnLogin" class="button">Login</button>
+                <input type="submit" id="btnLogin"  value="Login" class="button">
             </form>
         </section>
-
-        <div th:if="${param.error}" class="alert-danger d-flex align-items-center" role="alert">
-            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
-            <div>
-            El nombre de usuario o contraseña es incorrecto.
-            </div>
-        </div>
-        <div th:if="${param.logout}" class="alert alert-success d-flex align-items-center" role="alert">
-            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
-            <div>
-                Ha sido desconectado, vuelva pronto!.
-            </div>
-        </div>
-
-
-
 
     </div> <!-- END class="container" -->
     
