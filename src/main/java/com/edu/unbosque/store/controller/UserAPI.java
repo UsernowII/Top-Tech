@@ -41,7 +41,7 @@ public class UserAPI {
     public String read(Model model){
         List<User> users = userService.listar();
         model.addAttribute("users",users);
-        return "usuarios";
+        return "users";
     }
 
     @GetMapping("/usuario/nuevo")

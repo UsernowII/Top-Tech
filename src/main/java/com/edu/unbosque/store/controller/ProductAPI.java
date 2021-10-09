@@ -25,7 +25,7 @@ public class ProductAPI {
     public String read(Model model){
         List<Product> products = service.listar();
         model.addAttribute("products",products);
-        return "productos";
+        return "products";
     }
 
     @GetMapping("/producto/nuevo")

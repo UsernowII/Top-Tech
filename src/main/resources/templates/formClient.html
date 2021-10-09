@@ -3,52 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" >
-    <title>Registro Usuarios</title>
+    <link rel="stylesheet" href="../static/css/form.css" th:href="@{/css/form.css}">
+    <link rel="stylesheet" href="../static/css/nav.css" th:href="@{/css/nav.css}">
+    <title>Registro Clientes</title>
 </head>
 <body>
-<div class="px-5 py-3">
-    <form th:action="@{/guardar}" th:object="${userNew}" method="POST" autocomplete="on" >
-        <div class="row mb-3">
-            <label class="col-form-label col-sm-2">Cedula</label>
-            <div class="col-sm-4">
-                <input th:field="*{id}" type="text" class="form-control" value="">
+
+<!-- CONTAINER -->
+<div class="container-lg">
+
+    <!-- MENU-->
+    <header th:replace="nav::header"></header>
+    <!-- END MENU -->
+
+    <!-- TITULO -->
+
+    <h1>FORMULARIO USUARIOS</h1>
+
+    <!-- END TITULO -->
+
+    <!-- FORM -->
+    <div class="m-5">
+        <form class="col-4 mx-auto" th:action="@{/cliente/guardar}" th:object="${clientNew}" method="POST" autocomplete="on" >
+            <div class="row mb-2">
+                <!--<label class="col-form-label col-sm-2">Cedula</label>-->
+                <div class="col-sm-12">
+                    <input th:field="*{idCode}" type="text" class="form-control" value="" placeholder="Cédula">
+                </div>
             </div>
-        </div>
-        <div class="row mb-3">
-            <label class="col-form-label col-sm-2">Nombre</label>
-            <div class="col-sm-4">
-                <input th:field="*{nameUser}" type="text"  class="form-control" value="">
+            <div class="row mb-2">
+                <!--<label class="col-form-label col-sm-2">Nombre</label>-->
+                <div class="col-sm-12">
+                    <input th:field="*{nameClient}" type="text"  class="form-control" value="" placeholder="Nombre">
+                </div>
             </div>
-        </div>
-        <div class="row mb-3">
-            <label  class="col-form-label col-sm-2">Correo</label>
-            <div class="col-sm-4">
-                <input th:field="*{emailUser}" type="email" class="form-control">
+            <div class="row mb-2">
+                <!--<label  class="col-form-label col-sm-2">Correo</label>-->
+                <div class="col-sm-12">
+                    <input th:field="*{emailClient}" type="email" class="form-control" placeholder="Correo">
+                </div>
             </div>
-        </div>
-        <div class="row mb-3">
-            <label  class="col-form-label col-sm-2">Usuario</label>
-            <div class="col-sm-4">
-                <input th:field="*{nick}" type="text"  class="form-control">
+            <div class="row mb-2">
+                <!--<label  class="col-form-label col-sm-2">Usuario</label>-->
+                <div class="col-sm-12">
+                    <input th:field="*{addressClient}" type="text"  class="form-control" placeholder="Usuario">
+                </div>
             </div>
-        </div>
-        <div class="row mb-3">
-            <label class="col-form-label col-sm-2">Password</label>
-            <div class="col-sm-4">
-                <input th:field="*{password}" type="password" class="form-control">
+            <div class="row mb-2">
+                <!--<label class="col-form-label col-sm-2">Password</label>-->
+                <div class="col-sm-12">
+                    <input th:field="*{phoneClient}" type="text" class="form-control" placeholder="Password">
+                </div>
             </div>
-        </div>
 
 
-        <div class="row mb-3">
-            <div>
-                <input type="submit" value="Guardar" class="btn btn-success">
-                <a th:href="@{/usuario/listar}"><button class="btn btn-danger">Cancelar</button></a>
+            <div class="row mb-2">
+                <div>
+                    <input type="submit" value="Guardar" class="btn btn-success">
+                    <a th:href="@{/cliente/listar}" class="btn btn-danger">Cancelar</a>
+                </div>
             </div>
-        </div>
-    </form>
+        </form>
+    </div>
+    <!-- END FORM -->
+
 </div>
+<!-- END CONTAINER -->
+
 <script src="https://kit.fontawesome.com/62ea397d3a.js" crossorigin="anonymous"></script>
 </body>
 </html>
-

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale1">
@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="container-lg">
-        <header>
+        <header th:fragment="header">
         
             <!-- barra de navegación -->
             <nav class="navbar navbar-expand-md">
@@ -20,11 +20,11 @@
                     </button>
                     <div id="MenuNav" class="collapse navbar-collapse">
                         <ul class="navbar-nav ms-3">
-                            <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-user-tie"></i> Usuarios</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-user-friends"></i> Clientes</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-boxes"></i> Proveedores</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-laptop"></i> Productos</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-dollar-sign"></i> Ventas</a></li>
+                            <li class="nav-item"><a class="nav-link" th:href="@{/usuario/listar}"><i class="fas fa-user-tie"></i> Usuarios</a></li>
+                            <li class="nav-item"><a class="nav-link" th:href="@{/cliente/listar}"><i class="fas fa-user-friends"></i> Clientes</a></li>
+                            <li class="nav-item"><a class="nav-link" th:href="@{/proveedor/listar}"><i class="fas fa-boxes"></i> Proveedores</a></li>
+                            <li class="nav-item"><a class="nav-link" th:href="@{/producto/listar}"><i class="fas fa-laptop"></i> Productos</a></li>
+                            <li class="nav-item"><a class="nav-link" th:href="@{/ventas/listar}"><i class="fas fa-dollar-sign"></i> Ventas</a></li>
                             <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-chart-bar"></i> Reportes</a></li>
                             <!--<li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-question-circle"></i> Ayuda</a></li>-->
                         </ul>
