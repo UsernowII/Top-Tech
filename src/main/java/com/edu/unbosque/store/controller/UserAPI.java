@@ -5,6 +5,7 @@ import com.edu.unbosque.store.service.UserService;
 
 import com.edu.unbosque.store.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
@@ -24,19 +25,16 @@ public class UserAPI {
     private UserService userService;
 
     @GetMapping({"/", "/login"})
-    public String inicio(){
+    public String inicio(@AuthenticationPrincipal org.springframework.security.core.userdetails.User user){
         return "index";
     }
 
-    @GetMapping("/nav")
-    public String nav(){
-        return "nav";
+    @GetMapping("/errores")
+    public String errores(){
+        return "403";
     }
-    /**
-     * Handle the root (/) and return start page Login
-     * @param model data spring boot
-     * @return index
-     */
+
+
     @GetMapping("/usuario/listar")
     public String read(Model model){
         List<User> users = userService.listar();

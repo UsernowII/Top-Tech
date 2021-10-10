@@ -31,13 +31,4 @@ public class User {
     @Getter @Setter @Column(name = "user")
     private String username;
 
-    @Getter @Setter @Column
-    private boolean enabled;
-
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "authorities_users", joinColumns = @JoinColumn(name = "id_user"), inverseJoinColumns = @JoinColumn(name = "authority_id"))
-    @Getter @Setter
-    private Set<Authority> authority;
-
-
 }
