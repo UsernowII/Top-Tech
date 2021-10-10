@@ -3,52 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" >
-    <title>Registro Usuarios</title>
+    <link rel="stylesheet" href="../static/css/form.css" th:href="@{/css/form.css}">
+    <link rel="stylesheet" href="../static/css/nav.css" th:href="@{/css/nav.css}">
+    <title>Registro Clientes</title>
 </head>
 <body>
-<div class="px-5 py-3">
-    <form th:action="@{/guardar}" th:object="${userNew}" method="POST" autocomplete="on" >
-        <div class="row mb-3">
-            <label class="col-form-label col-sm-2">Cedula</label>
-            <div class="col-sm-4">
-                <input th:field="*{id}" type="text" class="form-control" value="">
+
+<!-- CONTAINER -->
+<div class="container-lg">
+
+    <!-- MENU-->
+    <header>
+
+        <!-- barra de navegación -->
+        <nav class="navbar navbar-expand-md">
+            <div class="container-fluid">
+                <img src="../static/img/logo.png" width="80" class="d-inline-block align-top" alt="">
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#MenuNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div id="MenuNav" class="collapse navbar-collapse">
+                    <ul class="navbar-nav ms-3">
+                        <li class="nav-item"><a class="nav-link active" href="#"><i class="fas fa-user-tie"></i> Usuarios</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-user-friends"></i> Clientes</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-boxes"></i> Proveedores</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-laptop"></i> Productos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-dollar-sign"></i> Ventas</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-chart-bar"></i> Reportes</a></li>
+                        <!--<li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-question-circle"></i> Ayuda</a></li>-->
+                    </ul>
+                </div>
             </div>
-        </div>
-        <div class="row mb-3">
-            <label class="col-form-label col-sm-2">Nombre</label>
-            <div class="col-sm-4">
-                <input th:field="*{nameUser}" type="text"  class="form-control" value="">
+        </nav>
+
+    </header>
+    <!-- END MENU -->
+
+    <!-- TITULO -->
+
+    <h1>FORMULARIO CLIENTES</h1>
+
+    <!-- END TITULO -->
+
+    <!-- FORM -->
+    <div class="m-5">
+        <form class="col-4 mx-auto" th:action="@{/cliente/guardar}" th:object="${clientNew}" method="POST" autocomplete="on" >
+            <div class="row mb-2">
+                <!--<label class="col-form-label col-sm-2">Cedula</label>-->
+                <div class="col-sm-12">
+                    <input th:field="*{id}" type="text" class="form-control" value="" placeholder="Cédula">
+                </div>
             </div>
-        </div>
-        <div class="row mb-3">
-            <label  class="col-form-label col-sm-2">Correo</label>
-            <div class="col-sm-4">
-                <input th:field="*{emailUser}" type="email" class="form-control">
+            <div class="row mb-2">
+                <!--<label class="col-form-label col-sm-2">Nombre</label>-->
+                <div class="col-sm-12">
+                    <input th:field="*{nameClient}" type="text"  class="form-control" value="" placeholder="Nombre">
+                </div>
             </div>
-        </div>
-        <div class="row mb-3">
-            <label  class="col-form-label col-sm-2">Usuario</label>
-            <div class="col-sm-4">
-                <input th:field="*{nick}" type="text"  class="form-control">
+            <div class="row mb-2">
+                <!--<label  class="col-form-label col-sm-2">Correo</label>-->
+                <div class="col-sm-12">
+                    <input th:field="*{phoneClient}" type="text" class="form-control" placeholder="Telefono">
+                </div>
             </div>
-        </div>
-        <div class="row mb-3">
-            <label class="col-form-label col-sm-2">Password</label>
-            <div class="col-sm-4">
-                <input th:field="*{password}" type="password" class="form-control">
+            <div class="row mb-2">
+                <!--<label  class="col-form-label col-sm-2">Usuario</label>-->
+                <div class="col-sm-12">
+                    <input th:field="*{emailClient}" type="email"  class="form-control" placeholder="Correo electronico">
+                </div>
             </div>
-        </div>
+            <div class="row mb-2">
+                <!--<label class="col-form-label col-sm-2">Password</label>-->
+                <div class="col-sm-12">
+                    <input th:field="*{addresClient}" type="text" class="form-control" placeholder="Direccion">
+                </div>
+            </div>
 
 
-        <div class="row mb-3">
-            <div>
-                <input type="submit" value="Guardar" class="btn btn-success">
-                <a th:href="@{/usuario/listar}"><button class="btn btn-danger">Cancelar</button></a>
+            <div class="row mb-2">
+                <div>
+                    <input type="submit" value="Guardar" class="btn btn-success">
+                    <a th:href="@{/cliente/listar}" class="btn btn-danger">Cancelar</a>
+                </div>
             </div>
-        </div>
-    </form>
+        </form>
+    </div>
+    <!-- END FORM -->
+
 </div>
+<!-- END CONTAINER -->
+
 <script src="https://kit.fontawesome.com/62ea397d3a.js" crossorigin="anonymous"></script>
 </body>
 </html>
-
