@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+        rel="stylesheet" >
+  <link rel="stylesheet" href="../static/css/nav.css" th:href="@{/css/nav.css}">
+  <link rel="stylesheet" href="../static/css/form.css" th:href="@{/css/form.css}">
+  <link rel="stylesheet" href="../static/css/tables.css" th:href="@{/css/tables.css}">
+  <title>Usuarios</title>
+</head>
+<body>
+
+
+
+  <!-- MENU-->
+  <header th:replace="nav::header"></header>
+  <!-- END MENU -->
+
+
+  <!-- REPORTES -->
+  <div class="container">
+    <div class="abs-center">
+
+
+      <div class="row mb-1">
+        <div class="mx-5 my-5">
+          <a th:href="@{/usuario/listar}" class="btn btn-success btn-lg">Listado de Usuarios</a>
+        </div>
+        <div class="mx-5 my-5">
+          <a th:href="@{/cliente/listar}" class="btn btn-success btn-lg">Listado de Clientes</a>
+        </div>
+        <div class="mx-5 my-5">
+          <a href="#"                     class="btn btn-success btn-lg" >Ventas por Cliente</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+<!-- END CONTAINER -->
+<script src="https://kit.fontawesome.com/62ea397d3a.js" crossorigin="anonymous"></script>
+<script src="https:/code.jquery.com/jquery-3.4.1.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="../static/js/alerts.js" type="text/javascript" th:src="@{/js/alerts.js}"></script>
+</body>
+</html>

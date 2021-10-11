@@ -24,16 +24,6 @@ public class UserAPI {
     @Autowired
     private UserService userService;
 
-    @GetMapping({"/", "/login"})
-    public String inicio(@AuthenticationPrincipal org.springframework.security.core.userdetails.User user){
-        return "index";
-    }
-
-    @GetMapping("/errores")
-    public String errores(){
-        return "403";
-    }
-
 
     @GetMapping("/usuario/listar")
     public String read(Model model){

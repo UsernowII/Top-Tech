@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale1">
@@ -25,19 +26,25 @@
                             <li class="nav-item"><a class="nav-link" th:href="@{/proveedor/listar}"><i class="fas fa-boxes"></i> Proveedores</a></li>
                             <li class="nav-item"><a class="nav-link" th:href="@{/producto/listar}"><i class="fas fa-laptop"></i> Productos</a></li>
                             <li class="nav-item"><a class="nav-link" th:href="@{/ventas/listar}"><i class="fas fa-dollar-sign"></i> Ventas</a></li>
-                            <li class="nav-item"><a class="nav-link" th:href="@{/reportes/listar}"><i class="fas fa-chart-bar"></i> Reportes</a></li>
+                            <li class="nav-item"><a class="nav-link" th:href="@{/reportes}"><i class="fas fa-chart-bar"></i> Reportes</a></li>
                             <li class="nav-link">
                                 <form th:action="@{/logout}" method="POST" >
-                                <input class="btn btn-outline-secondary" type="submit" value="Logout">
+                                    <i class="fas fa-sign-in-alt"></i>
+                                <input type="submit" value="Logout" >
+                                <!--<a  onclick="loginSuccess()" ><i class="fas fa-chart-bar" ></i>Cerrar sesion</a>-->
                                 </form>
                             </li>
                         </ul>
                     </div>
                 </div>
             </nav>
-        
         </header>
     </div>
+
+    <footer th:fragment="footer" class="mx-5 py-5">
+        <b>USER:</b> <span sec:authentication="name" >Usuario que hizo login</span>
+        <b>Roles:</b> <span sec:authentication="principal.authorities" >Roles</span>
+    </footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js"></script>
 <script src="https://kit.fontawesome.com/62ea397d3a.js" crossorigin="anonymous"></script>
 </body>

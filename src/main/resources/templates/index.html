@@ -17,8 +17,8 @@
             <img th:src="@{/img/logo.png}" width="180px" alt="imagen">
         </div>
     </header>
-    
-    
+
+
         <section class="col-4 mx-auto mt-5 formulario">
             <form th:action="@{/login}" method="POST">
                 <div class="mb-2 input_container">
@@ -33,22 +33,16 @@
             </form>
         </section>
 
-        <div th:if="${param.error}" class="alert-danger d-flex align-items-center" role="alert">
-            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+        <div th:if="${param.error}" class="alert alert-danger  align-items-center my-3" role="alert">
             <div>
             El nombre de usuario o contraseña es incorrecto.
             </div>
         </div>
-        <div th:if="${param.logout}" class="alert alert-success d-flex align-items-center" role="alert">
-            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+        <div th:if="${param.logout}" class="alert alert-success align-text-center my-3" role="alert">
             <div>
                 Ha sido desconectado, vuelva pronto!.
             </div>
         </div>
-
-
-
-
     </div> <!-- END class="container" -->
     
 </body>

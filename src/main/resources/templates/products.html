@@ -46,7 +46,7 @@
                     <td th:text="${p.priceSell}"></td>
                     <td>
                         <a th:href="@{/producto/editar/}+${p.idCode}" class="btn btn-warning" >Editar</a>
-                        <a th:href="@{/producto/eliminar/}+${p.idCode}" class="btn btn-danger">Eliminar</a>
+                        <a  th:onclick="productDelete([[${p.idCode}]])" class="btn btn-danger">Eliminar</a>
                     </td>
                 </tr>
             </tbody>
@@ -57,5 +57,8 @@
 </div>
 <!-- END CONTAINER -->
 <script src="https://kit.fontawesome.com/62ea397d3a.js" crossorigin="anonymous"></script>
+<script src="https:/code.jquery.com/jquery-3.4.1.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="../static/js/alerts.js" type="text/javascript" th:src="@{/js/alerts.js}"></script>
 </body>
 </html>

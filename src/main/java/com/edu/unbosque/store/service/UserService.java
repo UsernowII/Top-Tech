@@ -12,7 +12,9 @@ public interface UserService {
      List<User> listar();
 
      User getUserId(User user);
+
      void save(User user);
+
      void delete(long id);
 
 
