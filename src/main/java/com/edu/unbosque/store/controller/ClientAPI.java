@@ -15,6 +15,7 @@ import java.util.List;
 
 @RequestMapping
 @Controller
+
 public class ClientAPI {
 
     @Autowired
@@ -54,5 +55,6 @@ public class ClientAPI {
         clientService.delete(id);
         return "redirect:/cliente/listar";
     }
+
 
 }

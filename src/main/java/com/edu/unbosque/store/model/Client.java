@@ -6,34 +6,32 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+
+import javax.persistence.*;
 
 @Entity
-@Table(name="clients")
+@Table(name = "client")
 @AllArgsConstructor
 @NoArgsConstructor
+
 public class Client {
+	
+	@Id
+	@Getter @Setter @Column (name = "id_client")
+	private Long id;
+	
+	@Getter @Setter @Column (name = "name_client")
+	private String nameClient;
 
-    @Id
-    @Getter @Setter @Column(name = "id_client")
-    private Long idCode;
-
-    @Getter @Setter @Column(name ="address_client")
-    private String addressClient;
-
-    @Getter @Setter @Column(name = "email_client")
-    private String emailClient;
-
-    @Getter @Setter @Column(name = "name_client")
-    private String nameClient;
-
-    @Getter @Setter @Column(name = "phone_client")
-    private String phoneClient;
-
-
+	
+	@Getter @Setter @Column (name = "phone_client")
+	private String phoneClient;
+	
+	@Getter @Setter @Column (name = "email_client")
+	private String emailClient;
+	
+	@Getter @Setter @Column (name = "addres_client")
+	private String addresClient;
 
 
 }
