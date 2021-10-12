@@ -28,7 +28,7 @@ public class ClientServiceImp implements ClientService {
 	@Override
 	@Transactional(readOnly = true)
 	public Client getClientId(Client client) {
-		return data.findById(client.getId()).orElse(null);
+		return data.findById(client.getIdCode()).orElse(null);
 	}
 	
 	@Override
