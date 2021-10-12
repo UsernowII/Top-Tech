@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../static/css/nav.css" th:href="@{/css/nav.css}">
     <link rel="stylesheet" href="../static/css/form.css" th:href="@{/css/form.css}">
     <link rel="stylesheet" href="../static/css/tables.css" th:href="@{/css/tables.css}">
-    <title>Productos</title>
+    <title>Proveedores</title>
 </head>
 <body>
 
@@ -18,40 +18,33 @@
     <!-- END MENU -->
 
     <!-- TITULO -->
-    <h1>LISTADO DE PRODUCTOS</h1>
+    <h1>LISTADO DE PROVEEDORES</h1>
     <!-- END TITULO -->
 
 
     <div class="container mt=4 mt=4 table-responsive-lg">
-        <a th:href="@{/producto/nuevo}" class="btn btn-dark my-3 py-2 text-center"> <i class="fas fa-plus-circle"></i> Agregar</a>
+        <a th:href="@{/proveedor/nuevo}" class="btn btn-dark my-3 py-2 text-center"> <i class="fas fa-plus"></i> Agregar</a>
         <table class="table table-light table-hover">
             <thead>
             <tr>
-                <th>CODIGO</th>
-                <th>NAME</th>
                 <th>NIT</th>
-                <th>PRECIO COMPRA</th>
-                <th>IVA COMPRA</th>
-                <th>PRECIO VENTA</th>
+                <th>RAZON SOCIAL</th>
+                <th>CIUDAD</th>
+                <th>DIRECCION</th>
+                <th>TELEFONO</th>
                 <th>ACCIONES</th>
             </tr>
             </thead>
             <tbody>
-                <tr th:each="p:${products}">
-                    <td th:text="${p.idCode}"></td>
-                    <td th:text="${p.productName}"></td>
+                <tr th:each="p:${providersList}">
                     <td th:text="${p.idProvider}"></td>
-                    <td th:text="${p.priceProduct}"></td>
-                    <td th:text="${p.iva}"></td>
-                    <td th:text="${p.priceSell}"></td>
+                    <td th:text="${p.name}"></td>
+                    <td th:text="${p.city}"></td>
+                    <td th:text="${p.addressProvider}"></td>
+                    <td th:text="${p.phone}"></td>
                     <td>
-<<<<<<< HEAD
-                        <a th:href="@{/producto/editar/}+${p.idCode}" class="btn btn-warning"><i class="fas fa-edit"></i> Editar</a>
-                        <a th:href="@{/producto/eliminar/}+${p.idCode}" class="btn btn-danger"><i class="fas fa-trash"></i> Eliminar</a>
-=======
-                        <a th:href="@{/producto/editar/}+${p.idCode}" class="btn btn-warning" >Editar</a>
-                        <a  th:onclick="productDelete([[${p.idCode}]])" class="btn btn-danger">Eliminar</a>
->>>>>>> security
+                        <a th:href="@{/proveedor/editar/}+${p.idProvider}" class="btn btn-warning" >Editar</a>
+                        <a  th:onclick="providerDelete([[${p.idProvider}]])" class="btn btn-danger">Eliminar</a>
                     </td>
                 </tr>
             </tbody>

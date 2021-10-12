@@ -14,23 +14,13 @@
 <!-- CONTAINER -->
 <div class="container-lg">
 
-  <!-- MENU-->
+  <!-- MENU NAV-->
   <header th:replace="nav::header">  </header>
-  <!-- END MENU -->
+  <!-- END MENU NAV -->
 
   <!-- TITULO -->
-
   <h1>LISTADO DE CLIENTES</h1>
-
   <!-- END TITULO -->
-
-  <!-- BÚSQUEDA -->
-  <!--<form class="form-inline row">
-      <input class="form-control col-sm-3 " type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0 py-2" type="submit">Buscar</button>
-  </form>-->
-
-  <!-- END BÚSQUEDA -->
 
   <!-- RESULTADOS TABLA -->
   <div class="container mt=4 mt=4 table-responsive-lg">
@@ -55,7 +45,7 @@
         <td th:text="${c.phoneClient}"></td>
         <td>
           <a th:href="@{/cliente/editar/} + ${c.idCode}" class="btn btn-warning" >Editar</a>
-          <a th:href="@{/cliente/eliminar/} + ${c.idCode}" class="btn btn-danger">Eliminar</a>
+          <a  th:onclick="clientDelete([[${c.idCode}]])" class="btn btn-danger">Eliminar</a>
         </td>
       </tr>
       </tbody>
@@ -67,5 +57,8 @@
 </div>
 <!-- END CONTAINER -->
 <script src="https://kit.fontawesome.com/62ea397d3a.js" crossorigin="anonymous"></script>
+<script src="https:/code.jquery.com/jquery-3.4.1.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="../static/js/alerts.js" type="text/javascript" th:src="@{/js/alerts.js}"></script>
 </body>
 </html>

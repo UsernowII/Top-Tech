@@ -17,61 +17,47 @@
     <!-- END MENU -->
 
     <!-- TITULO -->
-
     <h1>FORMULARIO USUARIOS</h1>
-
     <!-- END TITULO -->
 
     <!-- FORM -->
-
-
-    <div class="col-md-5 col-md-offset-5 mx-auto mt-5">
-        <form class="" th:action="@{/usuario/guardar}" th:object="${userNew}" method="POST" autocomplete="on" >
-            <div class="row align-items-center mb-2">
-                <div class="col-4">
-                    <label for="inputId" class="col-form-label"><i class="fas fa-id-card"></i> Cédula</label>
-                </div>
-                <div class="col-8">
-                    <input th:field="*{id}" type="text" id="inputId" class="form-control" value="">
+    <div class="m-5">
+        <form class="col-4 mx-auto" th:action="@{/usuario/guardar}" th:object="${userNew}" method="POST" autocomplete="on" >
+            <div class="row mb-2">
+                <!--<label class="col-form-label col-sm-2">Cedula</label>-->
+                <div class="col-sm-12">
+                    <input th:field="*{id}" type="text" class="form-control" value="" placeholder="Cédula">
                 </div>
             </div>
-            <!--<div class="row align-items-center mb-2">
-                <div class="col-4">
-                    <label for="inputName" class="col-form-label"> <i class="fas fa-signature"></i> Nombre</label>
-                </div>
-                <div class="col-8">
-                    <input th:field="*{nameUser}" type="text" id="inputName" class="form-control" value="">
+            <div class="row mb-2">
+                <!--<label class="col-form-label col-sm-2">Nombre</label>-->
+                <div class="col-sm-12">
+                    <input th:field="*{name}" type="text" class="form-control" value="" placeholder="Nombre">
                 </div>
             </div>
-            <div class="row align-items-center mb-2">
-                <div class="col-4">
-                    <label for="inputEmail" class="col-form-label"><i class="fas fa-envelope"></i> Correo</label>
-                </div>
-                <div class="col-8">
-                   <input th:field="*{emailUser}" type="email" id="inputEmail" class="form-control">
+            <div class="row mb-2">
+                <!--<label  class="col-form-label col-sm-2">Correo</label>-->
+                <div class="col-sm-12">
+                    <input th:field="*{emailUser}" type="email" class="form-control" placeholder="Correo">
                 </div>
             </div>
-            <div class="row align-items-center mb-2">
-                <div class="col-4">
-                    <label for="inputNick" class="col-form-label"><i class="fas fa-user"></i> Usuario</label>
-                </div>
-                <div class="col-8">
-                   <input th:field="*{nick}" type="text"  id="inputNick" class="form-control">
+            <div class="row mb-2">
+                <!--<label  class="col-form-label col-sm-2">Usuario</label>-->
+                <div class="col-sm-12">
+                    <input th:field="*{username}" type="text" class="form-control" placeholder="Usuario">
                 </div>
             </div>
-            <div class="row align-items-center mb-2">
-                <div class="col-4">
-                    <label for="inputPassword" class="col-form-label"><i class="fas fa-key"></i> Contraseña</label>
+            <div class="row mb-2">
+                <!--<label class="col-form-label col-sm-2">Password</label>-->
+                <div class="col-sm-12">
+                    <input th:field="*{password}" type="text" class="form-control" placeholder="Password">
                 </div>
-                <div class="col-8">
-                   <input th:field="*{password}" type="text" id="inputPassword" class="form-control">
-                </div>
-            </div>-->
+            </div>
 
 
-            <div class="row mt-4">
+            <div class="row mb-2">
                 <div>
-                    <input type="submit" value=" Guardar" class="btn btn-success">
+                    <input type="submit" value="Guardar" class="btn btn-success">
                     <a th:href="@{/usuario/listar}" class="btn btn-danger">Cancelar</a>
                 </div>
             </div>
