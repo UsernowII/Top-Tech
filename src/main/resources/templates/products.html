@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../static/css/nav.css" th:href="@{/css/nav.css}">
     <link rel="stylesheet" href="../static/css/form.css" th:href="@{/css/form.css}">
     <link rel="stylesheet" href="../static/css/tables.css" th:href="@{/css/tables.css}">
-    <title>Usuarios</title>
+    <title>Productos</title>
 </head>
 <body>
 
@@ -23,7 +23,7 @@
 
 
     <div class="container mt=4 mt=4 table-responsive-lg">
-        <a th:href="@{/producto/nuevo}" class="btn btn-dark my-3 py-2 text-center"> <i class="fas fa-plus"></i> Agregar</a>
+        <a th:href="@{/producto/nuevo}" class="btn btn-dark my-3 py-2 text-center"> <i class="fas fa-plus-circle"></i> Agregar</a>
         <table class="table table-light table-hover">
             <thead>
             <tr>
@@ -45,8 +45,8 @@
                     <td th:text="${p.iva}"></td>
                     <td th:text="${p.priceSell}"></td>
                     <td>
-                        <a th:href="@{/producto/editar/}+${p.idCode}" class="btn btn-warning" >Editar</a>
-                        <a th:href="@{/producto/eliminar/}+${p.idCode}" class="btn btn-danger">Eliminar</a>
+                        <a th:href="@{/producto/editar/}+${p.idCode}" class="btn btn-warning"><i class="fas fa-edit"></i> Editar</a>
+                        <a th:href="@{/producto/eliminar/}+${p.idCode}" class="btn btn-danger"><i class="fas fa-trash"></i> Eliminar</a>
                     </td>
                 </tr>
             </tbody>

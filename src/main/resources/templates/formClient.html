@@ -47,14 +47,20 @@
     <!-- END TITULO -->
 
     <!-- FORM -->
-    <div class="m-5">
-        <form class="col-4 mx-auto" th:action="@{/cliente/guardar}" th:object="${clientNew}" method="POST" autocomplete="on" >
-            <div class="row mb-2">
-                <!--<label class="col-form-label col-sm-2">Cedula</label>-->
-                <div class="col-sm-12">
-                    <input th:field="*{id}" type="text" class="form-control" value="" placeholder="Cédula">
+    <div class="col-md-5 col-md-offset-5 mx-auto mt-5">
+        <form class="" th:action="@{/cliente/guardar}" th:object="${clientNew}" method="POST" autocomplete="on" >
+
+            <div class="row align-items-center mb-2">
+                <div class="col-4">
+                    <label for="inputId" class="col-form-label"><i class="fas fa-id-card"></i> Cédula</label>
+                </div>
+                <div class="col-8">
+                    <input th:field="*{idCode}" type="text" id="inputId" class="form-control" value="">
+
                 </div>
             </div>
+
+
             <div class="row mb-2">
                 <!--<label class="col-form-label col-sm-2">Nombre</label>-->
                 <div class="col-sm-12">

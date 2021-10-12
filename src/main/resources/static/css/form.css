@@ -10,7 +10,7 @@ h1{
 }
 
 .btn-success, .btn-danger {
-    width: 49.3%;
+    width: 49.2%;
     border-radius: 30px;
     text-transform: uppercase;
     font-family: 'Baloo 2', sans-serif;
@@ -18,4 +18,8 @@ h1{
 input.form-control {
     border-radius: 30px;
     border: 1px solid rgba(3,83,145,1);
+}
+.container.form {
+    max-width: 1200px;
+    margin:  0 auto;
 }
