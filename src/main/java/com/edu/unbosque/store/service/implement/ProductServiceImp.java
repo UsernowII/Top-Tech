@@ -1,5 +1,6 @@
 package com.edu.unbosque.store.service.implement;
 
+
 import com.edu.unbosque.store.model.Product;
 import com.edu.unbosque.store.repository.IProduct;
 import com.edu.unbosque.store.service.ProductService;
@@ -24,7 +25,7 @@ public class ProductServiceImp implements ProductService {
 
 
     @Override
-    @Transactional(readOnly = true)
+    //@Transactional(readOnly = true)
     public Product getProductId(Product product){
         return data.findById(product.getIdCode()).orElse(null);
     }

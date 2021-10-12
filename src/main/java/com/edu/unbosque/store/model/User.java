@@ -30,5 +30,4 @@ public class User {
     @Getter @Setter @Column(name = "user")
     private String nick;
 
-
 }

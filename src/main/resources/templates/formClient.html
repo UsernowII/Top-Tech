@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -13,12 +14,35 @@
 <div class="container-lg">
 
     <!-- MENU-->
-    <header th:replace="nav::header"></header>
+    <header>
+
+        <!-- barra de navegación -->
+        <nav class="navbar navbar-expand-md">
+            <div class="container-fluid">
+                <img src="../static/img/logo.png" width="80" class="d-inline-block align-top" alt="">
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#MenuNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div id="MenuNav" class="collapse navbar-collapse">
+                    <ul class="navbar-nav ms-3">
+                        <li class="nav-item"><a class="nav-link active" href="#"><i class="fas fa-user-tie"></i> Usuarios</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-user-friends"></i> Clientes</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-boxes"></i> Proveedores</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-laptop"></i> Productos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-dollar-sign"></i> Ventas</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-chart-bar"></i> Reportes</a></li>
+                        <!--<li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-question-circle"></i> Ayuda</a></li>-->
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+    </header>
     <!-- END MENU -->
 
     <!-- TITULO -->
 
-    <h1>FORMULARIO USUARIOS</h1>
+    <h1>FORMULARIO CLIENTES</h1>
 
     <!-- END TITULO -->
 
@@ -28,7 +52,7 @@
             <div class="row mb-2">
                 <!--<label class="col-form-label col-sm-2">Cedula</label>-->
                 <div class="col-sm-12">
-                    <input th:field="*{idCode}" type="text" class="form-control" value="" placeholder="Cédula">
+                    <input th:field="*{id}" type="text" class="form-control" value="" placeholder="Cédula">
                 </div>
             </div>
             <div class="row mb-2">
@@ -40,19 +64,19 @@
             <div class="row mb-2">
                 <!--<label  class="col-form-label col-sm-2">Correo</label>-->
                 <div class="col-sm-12">
-                    <input th:field="*{emailClient}" type="email" class="form-control" placeholder="Correo">
+                    <input th:field="*{phoneClient}" type="text" class="form-control" placeholder="Telefono">
                 </div>
             </div>
             <div class="row mb-2">
                 <!--<label  class="col-form-label col-sm-2">Usuario</label>-->
                 <div class="col-sm-12">
-                    <input th:field="*{addressClient}" type="text"  class="form-control" placeholder="Usuario">
+                    <input th:field="*{emailClient}" type="email"  class="form-control" placeholder="Correo electronico">
                 </div>
             </div>
             <div class="row mb-2">
                 <!--<label class="col-form-label col-sm-2">Password</label>-->
                 <div class="col-sm-12">
-                    <input th:field="*{phoneClient}" type="text" class="form-control" placeholder="Password">
+                    <input th:field="*{addresClient}" type="text" class="form-control" placeholder="Direccion">
                 </div>
             </div>
 

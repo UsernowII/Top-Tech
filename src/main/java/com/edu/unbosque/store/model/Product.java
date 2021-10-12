@@ -36,5 +36,4 @@ public class Product {
     @Getter @Setter @Column(name = "price_sell")
     private double priceSell;
 
-
 }
