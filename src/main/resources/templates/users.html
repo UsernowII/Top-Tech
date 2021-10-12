@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+        rel="stylesheet" >
+  <link rel="stylesheet" href="../static/css/nav.css" th:href="@{/css/nav.css}">
+  <link rel="stylesheet" href="../static/css/form.css" th:href="@{/css/form.css}">
+  <link rel="stylesheet" href="../static/css/tables.css" th:href="@{/css/tables.css}">
+  <title>Usuarios</title>
+</head>
+<body>
+
+<!-- CONTAINER -->
+<div class="container-lg">
+
+  <!-- MENU-->
+  <header th:replace="nav::header"></header>
+  <!-- END MENU -->
+
+  <!-- TITULO -->
+
+  <h1>LISTADO DE USUARIOS</h1>
+
+  <!-- END TITULO -->
+
+  <!-- BÚSQUEDA -->
+  <!--<form class="form-inline row">
+      <input class="form-control col-sm-3 " type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0 py-2" type="submit">Buscar</button>
+  </form>-->
+
+  <!-- END BÚSQUEDA -->
+
+  <!-- RESULTADOS TABLA -->
+  <div class="container mt=4 mt=4 table-responsive-lg">
+    <a th:href="@{/usuario/nuevo}" class="btn btn-dark my-3 py-2 text-center"><i class="fas fa-user-plus"></i> Agregar</a>
+    <table class="table table-light table-hover">
+      <thead>
+      <tr>
+        <th>CEDULA</th>
+        <th>NOMBRE</th>
+        <th>CORREO</th>
+        <th>USUARIO</th>
+        <th>PASSWORD</th>
+        <th>ACCIONES</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="u:${users}">
+        <td th:text="${u.id}"></td>
+        <td th:text="${u.nameUser}"></td>
+        <td th:text="${u.emailUser}"></td>
+        <td th:text="${u.nick}"></td>
+        <td th:text="${u.password}"></td>
+        <td>
+          <a th:href="@{/usuario/editar/}+${u.id}" class="btn btn-warning" ><i class="fas fa-user-edit"></i> Editar</a>
+          <a th:href="@{/usuario/eliminar/}+${u.id}" class="btn btn-danger"><i class="fas fa-user-minus"></i> Eliminar</a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+
+  </div>
+  <!-- RESULTADOS TABLA -->
+
+</div>
+<!-- END CONTAINER -->
+<script src="https://kit.fontawesome.com/62ea397d3a.js" crossorigin="anonymous"></script>
+</body>
+</html>

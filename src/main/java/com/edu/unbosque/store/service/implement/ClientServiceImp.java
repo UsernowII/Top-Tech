@@ -1,5 +1,6 @@
 package com.edu.unbosque.store.service.implement;
 
+
 import com.edu.unbosque.store.service.ClientService;
 import com.edu.unbosque.store.repository.IClient;
 import com.edu.unbosque.store.model.Client;
@@ -13,6 +14,7 @@ import java.util.List;
 
 @Service
 public class ClientServiceImp implements ClientService {
+
 	
 	@Autowired
 	private IClient data;

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+           rel="stylesheet" >
+    <link rel="stylesheet" href="../static/css/nav.css" th:href="@{/css/nav.css}">
+    <link rel="stylesheet" href="../static/css/form.css" th:href="@{/css/form.css}">
+    <link rel="stylesheet" href="../static/css/tables.css" th:href="@{/css/tables.css}">
+    <title>Usuarios</title>
+</head>
+<body>
+
+<div class="container-lg">
+
+    <!-- MENU-->
+    <header th:replace="nav::header"></header>
+    <!-- END MENU -->
+
+    <!-- TITULO -->
+    <h1>LISTADO DE PRODUCTOS</h1>
+    <!-- END TITULO -->
+
+
+    <div class="container mt=4 mt=4 table-responsive-lg">
+        <a th:href="@{/producto/nuevo}" class="btn btn-dark my-3 py-2 text-center"> <i class="fas fa-plus"></i> Agregar</a>
+        <table class="table table-light table-hover">
+            <thead>
+            <tr>
+                <th>CODIGO</th>
+                <th>NAME</th>
+                <th>NIT</th>
+                <th>PRECIO COMPRA</th>
+                <th>IVA COMPRA</th>
+                <th>PRECIO VENTA</th>
+                <th>ACCIONES</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr th:each="p:${products}">
+                    <td th:text="${p.idCode}"></td>
+                    <td th:text="${p.productName}"></td>
+                    <td th:text="${p.idProvider}"></td>
+                    <td th:text="${p.priceProduct}"></td>
+                    <td th:text="${p.iva}"></td>
+                    <td th:text="${p.priceSell}"></td>
+                    <td>
+                        <a th:href="@{/producto/editar/}+${p.idCode}" class="btn btn-warning" >Editar</a>
+                        <a th:href="@{/producto/eliminar/}+${p.idCode}" class="btn btn-danger">Eliminar</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- RESULTADOS TABLA -->
+
+</div>
+<!-- END CONTAINER -->
+<script src="https://kit.fontawesome.com/62ea397d3a.js" crossorigin="anonymous"></script>
+</body>
+</html>

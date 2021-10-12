@@ -11,7 +11,9 @@ public interface ProductService {
      List<Product> listar();
 
      Product getProductId(Product product);
+
      void save(Product product);
+
      void delete(long id);
 
 

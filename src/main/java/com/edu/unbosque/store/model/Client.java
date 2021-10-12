@@ -1,9 +1,11 @@
 package com.edu.unbosque.store.model;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
 
 import javax.persistence.*;
 
@@ -30,5 +32,6 @@ public class Client {
 	
 	@Getter @Setter @Column (name = "addres_client")
 	private String addresClient;
+
 
 }
