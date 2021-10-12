@@ -1,21 +1,41 @@
 package com.edu.unbosque.store.util;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
+    @Autowired
+    private UserDetailsService userDetailsService;
+
+
+
     //Necesario para evitar que la seguridad se aplique a los resources
     //Como los css, imagenes y javascripts
     String[] resources = new String[]{
             "/include/**","/css/**","/icons/**","/img/**","/js/**","/layer/**"
     };
+
+
+    @Bean
+    public BCryptPasswordEncoder passwordEncoder(){
+        return new BCryptPasswordEncoder();
+
+    }
+
+    public void configurerGlobal(AuthenticationManagerBuilder builder) throws Exception {
+        builder.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
+    }
 
 
 
@@ -48,18 +68,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     }
 
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication()
-                .withUser("admin")
-                .password("{noop}123456")
-                .roles("ADMIN", "USER")
-                .and()
-                .withUser("usuario")
-                .password("{noop}123456")
-                .roles("USER")
-        ;
-    }
+
 }
 
 

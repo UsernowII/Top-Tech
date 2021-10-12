@@ -27,7 +27,8 @@
 
   <!-- RESULTADOS TABLA -->
   <div class="container mt=4 mt=4 table-responsive-lg">
-    <a th:href="@{/usuario/nuevo}" class="btn btn-dark my-3 py-2 text-center"> <i class="fas fa-plus"></i> Agregar</a>
+    <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/usuario/nuevo}" class="btn btn-dark my-3 py-2 text-center"> <i class="fas fa-plus"></i> Agregar</a>
+
     <table class="table table-light table-hover">
       <thead>
       <tr>
@@ -35,8 +36,8 @@
         <th>NOMBRE</th>
         <th>CORREO</th>
         <th>USUARIO</th>
-        <th>PASSWORD</th>
-        <th>ACCIONES</th>
+        <th sec:authorize="hasRole('ROLE_ADMIN')" >PASSWORD</th>
+        <th sec:authorize="hasRole('ROLE_ADMIN')" >ACCIONES</th>
       </tr>
       </thead>
       <tbody>
@@ -45,11 +46,11 @@
         <td th:text="${u.name}"></td>
         <td th:text="${u.emailUser}"></td>
         <td th:text="${u.username}"></td>
-        <td th:text="${u.password}"></td>
+        <td sec:authorize="hasRole('ROLE_ADMIN')" th:text="${u.password}"></td>
         <td>
-          <a th:href="@{/usuario/editar/}+${u.id}" class="btn btn-warning" >Editar</a>
+          <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/usuario/editar/}+${u.id}" class="btn btn-warning" >Editar</a>
           <!--<a th:href="@{/usuario/eliminar/}+${u.id}" class="btn btn-danger">Eliminar</a>-->
-          <a  th:onclick="userDelete([[${u.id}]])" class="btn btn-danger">Eliminar</a>
+          <a  sec:authorize="hasRole('ROLE_ADMIN')" th:onclick="userDelete([[${u.id}]])" class="btn btn-danger">Eliminar</a>
 
         </td>
       </tr>

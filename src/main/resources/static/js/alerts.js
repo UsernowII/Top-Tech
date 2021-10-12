@@ -108,3 +108,32 @@ function productDelete(id) {
             }
         });
 }
+
+function providerDelete(id) {
+    swal({
+        title: "Esta seguro de Eliminar este proveedor?",
+        text: "Una vez eliminado este registro no puede ser recuperado!",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+    })
+        .then((OK) => {
+            if (OK) {
+                $.ajax({
+                    url:"/proveedor/eliminar/"+id,
+                    success: function(res){
+                        console.log(res);
+                    }
+                });
+                swal("Poof! este proveedor ha sido eliminado!", {
+                    icon: "success",
+                }).then((ok) => {
+                    if(ok){
+                        location.href="/proveedor/listar";
+                    }
+                });
+            } else {
+                swal("Este proveedor NO se ha eliminado!");
+            }
+        });
+}
