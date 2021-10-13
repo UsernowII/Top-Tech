@@ -45,13 +45,9 @@
                     <td th:text="${p.iva}"></td>
                     <td th:text="${p.priceSell}"></td>
                     <td>
-<<<<<<< HEAD
-                        <a th:href="@{/producto/editar/}+${p.idCode}" class="btn btn-warning"><i class="fas fa-edit"></i> Editar</a>
-                        <a th:href="@{/producto/eliminar/}+${p.idCode}" class="btn btn-danger"><i class="fas fa-trash"></i> Eliminar</a>
-=======
-                        <a th:href="@{/producto/editar/}+${p.idCode}" class="btn btn-warning" >Editar</a>
-                        <a  th:onclick="productDelete([[${p.idCode}]])" class="btn btn-danger">Eliminar</a>
->>>>>>> security
+
+                        <a th:href="@{/producto/editar/}+${p.idCode}" class="btn btn-warning" ><i class="fas fa-edit"></i>Editar</a>
+                        <a  th:onclick="productDelete([[${p.idCode}]])" class="btn btn-danger"><i class="fas fa-trash"></i>Eliminar</a>
                     </td>
                 </tr>
             </tbody>

@@ -48,10 +48,9 @@
                 <td th:text="${u.username}"></td>
                 <td sec:authorize="hasRole('ROLE_ADMIN')" th:text="${u.password}"></td>
                 <td>
-                    <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/usuario/editar/}+${u.id}" class="btn btn-warning" >Editar</a>
-                    <!--<a th:href="@{/usuario/eliminar/}+${u.id}" class="btn btn-danger">Eliminar</a>-->
+                    <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/usuario/editar/}+${u.id}" class="btn btn-warning" >
+                        <i class="fas fa-edit"></i>Editar</a>
                     <a  sec:authorize="hasRole('ROLE_ADMIN')" th:onclick="userDelete([[${u.id}]])" class="btn btn-danger">Eliminar</a>
-
                 </td>
             </tr>
             </tbody>
