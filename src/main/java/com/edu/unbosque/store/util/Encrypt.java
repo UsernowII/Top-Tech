@@ -7,7 +7,7 @@ public class Encrypt {
     public static void main(String[] args) {
 
 
-        String password = "98765";
+        String password = "123456";
         System.out.println("Password: " + password);
         System.out.println("password encriptado: "+ encryptPassword(password));
 
