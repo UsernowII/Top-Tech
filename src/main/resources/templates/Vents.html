@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<meta charset="UTF-8">
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+          rel="stylesheet" >
+    <link rel="stylesheet" href="../static/css/nav.css" th:href="@{/css/nav.css}">
+    <link rel="stylesheet" href="../static/css/form.css" th:href="@{/css/form.css}">
+    <link rel="stylesheet" href="../static/css/tables.css" th:href="@{/css/tables.css}">
+<title>Reporte de ventas</title>
+</head>
+<body>
+<!-- CONTAINER -->
+	<div class="container-lg">
+
+   		 <!-- MENU-->
+   		 <header th:replace="nav::header"></header>
+   		 <!-- END MENU -->
+
+   		 <!-- TITULO -->
+
+    	<h1>REPORTE DE VENTAS</h1>
+    	
+    	
+
+    	<!-- END TITULO -->
+	</div>
+	
+	<div>
+		<table>
+			<thead>
+				<tr>
+					<th>CEDULA</th>
+					<th><input type ="text"></th><!-- introducir c.c  cliente-->
+					<th><input type="button" value="CONSULTAR"></th><!-- boton de consulta de c.c -->
+					<th>CLIENTE</th>
+					<th><input type ="text"></th><!-- mostrar el nombre de cliente traido de la base de datos -->
+					<th>CONSEC</th>
+					<th><input type="text"></th><!-- muestra consecutivo cliente -->
+				</tr>
+			</thead><br>
+			
+			
+			<tbody>
+				<tr>
+					<td>CODIGO PRODUCT.</td>
+					<td></td>
+					<td>NOMBRE PRODUCT.</td>
+					<td></td>
+					<td>CANT.</td>
+					<td>VALOR TOTAL</td>
+				</tr>
+				<tr>
+					<td><input type="text"></td>
+					<td></td>
+					<td><input type="text"></td>
+					<td></td>
+					<td><input type="number" size="40px"></td>
+					<td><input type="text" ></td>
+					<td></td>
+				
+				</tr>
+				<tr>
+					<td><input type="text"></td>
+					<td></td>
+					<td><input type="text"></td>
+					<td></td>
+					<td><input type="number"></td>
+					<td><input type="text"></td>
+					<td></td>
+				
+				</tr>
+				<tr>
+					<td><input type="text"></td>
+					<td></td>
+					<td><input type="text"></td>
+					<td></td>
+					<td><input type="number"></td>
+					<td><input type="text"></td>
+					<td></td>
+				
+				</tr>
+				
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td>Total venta</td>
+					<td align = "center"><input type="text"></td>
+				
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td>Total IVA</td>
+					<td align = "center"><input type="text"></td>
+				
+				</tr>
+				
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td align = "center"><input type="submit" value = "CONFIRMAR"></td>
+					<td>Total con IVA</td>
+					<td><input type="text"></td>
+					
+				
+				</tr>
+			</tbody>
+				
+			
+		
+		</table>
+		
+	
+	</div>
+
+</body>
+</html>
