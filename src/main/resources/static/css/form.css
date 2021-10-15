@@ -15,9 +15,13 @@ h1{
     text-transform: uppercase;
     font-family: 'Baloo 2', sans-serif;
 }
-input.form-control {
+input.form-control,
+select.form-select {
     border-radius: 30px;
     border: 1px solid rgba(3,83,145,1);
+}
+select.form-select {
+    font-size: 13px;
 }
 .container.form {
     max-width: 1200px;
@@ -30,7 +34,9 @@ input.form-control {
  * *****************/
 
 .reportes .btn-success, 
-.reportes .btn-danger {
+.reportes .btn-danger,
+.Contenido_Ventas_Factura .btn-success,
+.Contenido_Ventas_Factura .btn-danger {
     width: 100%;
 }
 .reportes .listado-usuarios {
