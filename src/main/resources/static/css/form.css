@@ -23,3 +23,23 @@ input.form-control {
     max-width: 1200px;
     margin:  0 auto;
 }
+
+
+/********************
+ * REPORTES
+ * *****************/
+
+.reportes .btn-success, 
+.reportes .btn-danger {
+    width: 100%;
+}
+.reportes .listado-usuarios {
+    background-color: rgba(3,83,145,1);
+}
+.reportes .listado-clientes {
+    background-color: rgba(3,108,145,1);
+}
+.reportes .ventas-clientes {
+    background-color: rgba(3,140,145,1);
+}
+
