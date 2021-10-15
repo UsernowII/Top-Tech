@@ -19,13 +19,13 @@ public class ProductServiceImp implements ProductService {
 
 
     @Override
-    public List<Product> listar() {
+    public List<Product> listProducts() {
         return (List<Product>) data.findAll();
     }
 
 
     @Override
-    //@Transactional(readOnly = true)
+    @Transactional(readOnly = true)
     public Product getProductId(Product product){
         return data.findById(product.getIdCode()).orElse(null);
     }

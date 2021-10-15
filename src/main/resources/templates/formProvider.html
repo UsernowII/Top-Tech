@@ -8,56 +8,69 @@
     <title>Registro de Proveedores</title>
 </head>
 <body>
-<header th:replace="nav::header"></header>
-<!-- END MENU -->
+<!-- CONTAINER -->
+<div class="container-lg">
+    <header th:replace="nav::header"></header>
+    <!-- END MENU -->
 
-<!-- TITULO -->
-
-<h1>FORMULARIO PROVEEDORES</h1>
-
-<!-- END TITULO -->
+    <!-- TITULO -->
+    <h1>FORMULARIO PROVEEDORES</h1>
+    <!-- END TITULO -->
 
 
-<div class="m-5">
-    <form class="col-4 mx-auto" th:action="@{/proveedor/guardar}" th:object="${providerNew}" method="POST" autocomplete="on" >
-        <div class="row mb-2">
-            <!--<label class="col-form-label col-sm-2">Codigo</label>-->
-            <div class="col-sm-12">
-                <input th:field="*{idProvider}" type="text" class="form-control" value="" placeholder="NIT">
+    <div class="col-md-5 col-md-offset-5 mx-auto mt-5">
+        <form th:action="@{/proveedor/guardar}" th:object="${providerNew}" method="POST" autocomplete="on" >
+            <div class="row align-items-center mb-2">
+                <div class="col-4">
+                    <label for="inputNIT" class="col-form-label"><i class="fas fa-id-card"></i> NIT</label>
+                </div>
+                <div class="col-8">
+                    <input th:field="*{idProvider}" type="text" class="form-control" value="" id="inputNIT">
+                </div>
             </div>
-        </div>
-        <div class="row mb-2">
-            <!--<label class="col-form-label col-sm-2">Nombre</label>-->
-            <div class="col-sm-12">
-                <input th:field="*{name}" type="text"  class="form-control" value="" placeholder="Razón Social">
+            <div class="row align-items-center mb-2">
+                <div class="col-4">
+                    <label for="inputNameProvider" class="col-form-label"><i class="fas fa-signature"></i> Razón Social</label>
+                </div>
+                <div class="col-8">
+                    <input th:field="*{name}" type="text"  class="form-control" value="" id="inputNameProvider">
+                </div>
             </div>
-        </div>
-        <div class="row mb-2">
-            <!--<label  class="col-form-label col-sm-2">NIT</label>-->
-            <div class="col-sm-12">
-                <input th:field="*{city}" type="text" class="form-control" value="" placeholder="Ciudad">
+            <div class="row align-items-center mb-2">
+                <div class="col-4">
+                    <label for="inputCity" class="col-form-label"><i class="fas fa-globe-americas"></i> Ciudad</label>
+                </div>
+                <div class="col-8">
+                    <input th:field="*{city}" type="text" class="form-control" value="" id="inputCity">
+                </div>
             </div>
-        </div>
-        <div class="row mb-2">
-            <!--<label  class="col-form-label col-sm-2">Precio Compra</label>-->
-            <div class="col-sm-12">
-                <input th:field="*{addressProvider}" type="text" class="form-control" value="" placeholder="Dirección">
+            <div class="row align-items-center mb-2">
+                <div class="col-4">
+                    <label for="inputAddress" class="col-form-label"><i class="fas fa-map-marked-alt"></i> Dirección</label>
+                </div>
+                <div class="col-8">
+                    <input th:field="*{addressProvider}" type="text" class="form-control" value="" id="inputAddress">
+                </div>
             </div>
-        </div>
-        <div class="row mb-3">
-            <!--<label  class="col-form-label col-sm-2">Iva Compra</label>-->
-            <div class="col-sm-12">
-                <input th:field="*{phone}" type="text"  class="form-control" placeholder="Teléfono">
+            <div class="row align-items-center mb-2">
+                <div class="col-4">
+                    <label for="inputPhone" class="col-form-label"><i class="fas fa-phone-alt"></i> Teléfono</label>
+                </div>
+                <div class="col-8">
+                    <input th:field="*{phone}" type="text"  class="form-control" id="inputPhone">
+                </div>
             </div>
-        </div>
-        <div class="row mb-2">
-            <div>
-                <input type="submit" value="Guardar" class="btn btn-success">
-                <a th:href="@{/proveedor/listar}" class="btn btn-danger">Cancelar</a>
+            <div class="row mt-4">
+                <div>
+                    <input type="submit" value="Guardar" class="btn btn-success">
+                    <a th:href="@{/proveedor/listar}" class="btn btn-danger">Cancelar</a>
+                </div>
             </div>
-        </div>
-    </form>
+        </form>
+    </div>
+
 </div>
+<!-- END CONTAINER -->
 <script src="https://kit.fontawesome.com/62ea397d3a.js" crossorigin="anonymous"></script>
 </body>
 </html>

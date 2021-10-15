@@ -11,6 +11,7 @@
 </head>
 <body>
 
+<!-- CONTAINER -->
 <div class="container-lg">
 
     <!-- MENU-->
@@ -23,7 +24,7 @@
 
 
     <div class="container mt=4 mt=4 table-responsive-lg">
-        <a th:href="@{/producto/nuevo}" class="btn btn-dark my-3 py-2 text-center"> <i class="fas fa-plus-circle"></i> Agregar</a>
+        <a th:href="@{/producto/nuevo}" class="btn btn-dark my-3 py-2 text-center"><i class="fas fa-plus-circle"></i> Agregar</a>
         <table class="table table-light table-hover">
             <thead>
             <tr>
@@ -31,7 +32,7 @@
                 <th>NAME</th>
                 <th>NIT</th>
                 <th>PRECIO COMPRA</th>
-                <th>IVA COMPRA</th>
+                <th>IVA</th>
                 <th>PRECIO VENTA</th>
                 <th>ACCIONES</th>
             </tr>
@@ -46,8 +47,8 @@
                     <td th:text="${p.priceSell}"></td>
                     <td>
 
-                        <a th:href="@{/producto/editar/}+${p.idCode}" class="btn btn-warning" ><i class="fas fa-edit"></i>Editar</a>
-                        <a  th:onclick="productDelete([[${p.idCode}]])" class="btn btn-danger"><i class="fas fa-trash"></i>Eliminar</a>
+                        <a th:href="@{/producto/editar/}+${p.idCode}" class="btn btn-warning" ><i class="fas fa-edit"></i></a>
+                        <a  th:onclick="productDelete([[${p.idCode}]])" class="btn btn-danger"><i class="fas fa-trash"></i></a>
                     </td>
                 </tr>
             </tbody>

@@ -1,15 +1,12 @@
 package com.edu.unbosque.store.controller;
 
-import com.edu.unbosque.store.model.Rol;
 import com.edu.unbosque.store.service.UserService;
 
 
 import com.edu.unbosque.store.model.User;
 import com.edu.unbosque.store.util.Encrypt;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
@@ -18,12 +15,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-
-import java.util.ArrayList;
 import java.util.List;
 
 @RequestMapping
 @Controller
+@Slf4j
 public class UserAPI {
 
     @Autowired
@@ -31,7 +27,7 @@ public class UserAPI {
 
     @GetMapping("/usuario/listar")
     public String read(Model model){
-        List<User> users = userService.listar();
+        List<User> users = userService.listUsers();
         model.addAttribute("users",users);
         return "users";
     }
@@ -48,7 +44,7 @@ public class UserAPI {
         Encrypt encrypt = new Encrypt();
         String hashPass = encrypt.encryptPassword(p.getPassword());
         p.setPassword(hashPass);
-
+        log.info(p.getPassword());
         userService.save(p);
         return "redirect:/usuario/listar";
     }

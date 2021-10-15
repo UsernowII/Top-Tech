@@ -7,37 +7,37 @@
   <link rel="stylesheet" href="../static/css/nav.css" th:href="@{/css/nav.css}">
   <link rel="stylesheet" href="../static/css/form.css" th:href="@{/css/form.css}">
   <link rel="stylesheet" href="../static/css/tables.css" th:href="@{/css/tables.css}">
-  <title>Usuarios</title>
+  <title>Reportes</title>
 </head>
 <body>
 
 
+<div class="container-lg">
 
   <!-- MENU-->
   <header th:replace="nav::header"></header>
   <!-- END MENU -->
 
+    <!-- TITULO -->
+    <h1>REPORTES</h1>
+    <!-- END TITULO -->
+
 
   <!-- REPORTES -->
-  <div class="container">
-    <div class="abs-center">
-
-
-      <div class="row mb-1">
-        <div class="mx-5 my-5">
-          <a th:href="@{/usuario/listar}" class="btn btn-success btn-lg">Listado de Usuarios</a>
-        </div>
-        <div class="mx-5 my-5">
-          <a th:href="@{/cliente/listar}" class="btn btn-success btn-lg">Listado de Clientes</a>
-        </div>
-        <div class="mx-5 my-5">
-          <a href="#"                     class="btn btn-success btn-lg" >Ventas por Cliente</a>
-        </div>
-      </div>
-
+  <div class="mx-auto mt-5 col-md-6 reportes">
+    <div class="row mb-2 mx-auto ">
+      <a th:href="@{/usuario/listar}" class="btn btn-success listado-usuarios"><i class="fas fa-users"></i> Listado de Usuarios</a>
+    </div>
+    <div class="row mb-2 mx-auto">
+      <a th:href="@{/cliente/listar}" class="btn btn-success listado-clientes"><i class="fas fa-user-tag"></i> Listado de Clientes</a>
+    </div>
+    <div class="row mb-2 mx-auto">
+      <a th:href="@{/ventas/listar}" class="btn btn-success ventas-clientes"><i class="fas fa-shopping-cart"></i> Ventas por Cliente</a>
     </div>
   </div>
+</div>
 <!-- END CONTAINER -->
+
 <script src="https://kit.fontawesome.com/62ea397d3a.js" crossorigin="anonymous"></script>
 <script src="https:/code.jquery.com/jquery-3.4.1.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>

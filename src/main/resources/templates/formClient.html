@@ -24,48 +24,48 @@
     <!-- FORM -->
     <div class="col-md-5 col-md-offset-5 mx-auto mt-5">
         <form class="" th:action="@{/cliente/guardar}" th:object="${clientNew}" method="POST" autocomplete="on" >
-
             <div class="row align-items-center mb-2">
                 <div class="col-4">
                     <label for="inputId" class="col-form-label"><i class="fas fa-id-card"></i> Cédula</label>
                 </div>
                 <div class="col-8">
                     <input th:field="*{idCode}" type="text" id="inputId" class="form-control" value="">
-
-                </div>
-            </div>
-            <div class="row mb-2">
-                <!--<label class="col-form-label col-sm-2">Nombre</label>-->
-                <div class="col-sm-12">
-                    <input th:field="*{nameClient}" type="text"  class="form-control" value="" placeholder="Nombre">
-                </div>
-            </div>
-            <div class="row mb-2">
-                <!--<label  class="col-form-label col-sm-2">Correo</label>-->
-                <div class="col-sm-12">
-                    <input th:field="*{phoneClient}" type="text" class="form-control" placeholder="Telefono">
-                </div>
-            </div>
-            <div class="row mb-2">
-                <!--<label  class="col-form-label col-sm-2">Usuario</label>-->
-                <div class="col-sm-12">
-                    <input th:field="*{emailClient}" type="email"  class="form-control" placeholder="Correo electronico">
-                </div>
-            </div>
-            <div class="row mb-2">
-                <!--<label class="col-form-label col-sm-2">Password</label>-->
-                <div class="col-sm-12">
-                    <input th:field="*{addressClient}" type="text" class="form-control" placeholder="Direccion">
-                </div>
-            </div>
-            <div class="row mb-2">
-                <div class="col-sm-12">
-                    <input th:field="*{phoneClient}" type="text" class="form-control" placeholder="Teléfono">
                 </div>
             </div>
 
-
-            <div class="row mb-2">
+            <div class="row align-items-center mb-2">
+                <div class="col-4">
+                    <label for="inputNameClient" class="col-form-label"><i class="fas fa-signature"></i> Nombre</label>
+                </div>
+                <div class="col-8">
+                    <input th:field="*{nameClient}" type="text"  id="inputNameClient" class="form-control" value="" >
+                </div>
+            </div>
+            <div class="row align-items-center mb-2">
+                <div class="col-4">
+                    <label for="inputEmailClient" class="col-form-label"><i class="fas fa-envelope"></i> Email</label>
+                </div>
+                <div class="col-8">
+                    <input th:field="*{emailClient}" type="email"  class="form-control" id="inputEmailClient">
+                </div>
+            </div>
+            <div class="row align-items-center mb-2">
+                <div class="col-4">
+                    <label for="inputAddressClient" class="col-form-label"><i class="fas fa-map-marked-alt"></i> Dirección</label>
+                </div>
+                <div class="col-8">
+                    <input th:field="*{addressClient}" type="text" class="form-control" id="inputAddressClient">
+                </div>
+            </div>
+            <div class="row align-items-center mb-2">
+                <div class="col-4">
+                    <label for="inputPhoneClient" class="col-form-label"><i class="fas fa-phone-alt"></i> Teléfono</label>
+                </div>
+                <div class="col-8">
+                    <input th:field="*{phoneClient}" type="text" class="form-control" id="inputPhoneClient">
+                </div>
+            </div>
+            <div class="row mt-4">
                 <div>
                     <input type="submit" value="Guardar" class="btn btn-success">
                     <a th:href="@{/cliente/listar}" class="btn btn-danger">Cancelar</a>

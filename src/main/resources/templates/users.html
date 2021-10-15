@@ -3,8 +3,7 @@
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
-          rel="stylesheet" >
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" >
     <link rel="stylesheet" href="../static/css/nav.css" th:href="@{/css/nav.css}">
     <link rel="stylesheet" href="../static/css/form.css" th:href="@{/css/form.css}">
     <link rel="stylesheet" href="../static/css/tables.css" th:href="@{/css/tables.css}">
@@ -27,7 +26,8 @@
 
     <!-- RESULTADOS TABLA -->
     <div class="container mt=4 mt=4 table-responsive-lg">
-        <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/usuario/nuevo}" class="btn btn-dark my-3 py-2 text-center"> <i class="fas fa-plus"></i> Agregar</a>
+        <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/usuario/nuevo}" class="btn btn-dark my-3 py-2 text-center">
+            <i class="fas fa-plus-circle"></i> Agregar</a>
 
         <table class="table table-light table-hover">
             <thead>
@@ -35,7 +35,7 @@
                 <th>CEDULA</th>
                 <th>NOMBRE</th>
                 <th>CORREO</th>
-                <th>USUARIO</th>
+                <th >USUARIO</th>
                 <th sec:authorize="hasRole('ROLE_ADMIN')" >PASSWORD</th>
                 <th sec:authorize="hasRole('ROLE_ADMIN')" >ACCIONES</th>
             </tr>
@@ -49,8 +49,9 @@
                 <td sec:authorize="hasRole('ROLE_ADMIN')" th:text="${u.password}"></td>
                 <td>
                     <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/usuario/editar/}+${u.id}" class="btn btn-warning" >
-                        <i class="fas fa-edit"></i>Editar</a>
-                    <a  sec:authorize="hasRole('ROLE_ADMIN')" th:onclick="userDelete([[${u.id}]])" class="btn btn-danger">Eliminar</a>
+                        <i class="fas fa-edit"></i></a>
+                    <a  sec:authorize="hasRole('ROLE_ADMIN')" th:onclick="userDelete([[${u.id}]])" class="btn btn-danger">
+                        <i class="fas fa-trash"></i></a>
                 </td>
             </tr>
             </tbody>

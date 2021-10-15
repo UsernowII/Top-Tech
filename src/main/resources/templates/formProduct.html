@@ -8,64 +8,80 @@
     <title>Registro de Productos</title>
 </head>
 <body>
-<header th:replace="nav::header"></header>
-<!-- END MENU -->
+<!-- CONTAINER -->
+<div class="container-lg">
 
-<!-- TITULO -->
+    <!-- MENU -->
+    <header th:replace="nav::header"></header>
+    <!-- END MENU -->
 
-<h1>FORMULARIO PRODUCTOS</h1>
-
-<!-- END TITULO -->
-
-
-<div class="m-5">
-    <form class="col-4 mx-auto" th:action="@{/producto/guardar}" th:object="${productNew}" method="POST" autocomplete="on" >
-        <div class="row mb-2">
-            <!--<label class="col-form-label col-sm-2">Codigo</label>-->
-            <div class="col-sm-12">
-                <input th:field="*{idCode}" type="text" class="form-control" value="" placeholder="Código">
-            </div>
-        </div>
-        <div class="row mb-2">
-            <!--<label class="col-form-label col-sm-2">Nombre</label>-->
-            <div class="col-sm-12">
-                <input th:field="*{productName}" type="text"  class="form-control" value="" placeholder="Nombre">
-            </div>
-        </div>
-        <div class="row mb-2">
-            <!--<label  class="col-form-label col-sm-2">NIT</label>-->
-            <div class="col-sm-12">
-                <input th:field="*{idProvider}" type="text" class="form-control" value="" placeholder="NIT">
-            </div>
-        </div>
-        <div class="row mb-2">
-            <!--<label  class="col-form-label col-sm-2">Precio Compra</label>-->
-            <div class="col-sm-12">
-                <input th:field="*{priceProduct}" type="text" class="form-control" value="" placeholder="Precio">
-            </div>
-        </div>
-        <div class="row mb-3">
-            <!--<label  class="col-form-label col-sm-2">Iva Compra</label>-->
-            <div class="col-sm-12">
-                <input th:field="*{iva}" type="text"  class="form-control" placeholder="IVA">
-            </div>
-        </div>
-        <div class="row mb-2">
-            <!--<label class="col-form-label col-sm-2">Precio Venta</label>-->
-            <div class="col-sm-12">
-                <input th:field="*{priceSell}" type="text" class="form-control" value="" placeholder="Precio Venta">
-            </div>
-        </div>
+    <!-- TITULO -->
+    <h1>FORMULARIO PRODUCTOS</h1>
+    <!-- END TITULO -->
 
 
-        <div class="row mb-2">
-            <div>
-                <input type="submit" value="Guardar" class="btn btn-success">
-                <a th:href="@{/producto/listar}" class="btn btn-danger">Cancelar</a>
+    <div class="col-md-5 col-md-offset-5 mx-auto mt-5">
+        <form th:action="@{/producto/guardar}" th:object="${productNew}" method="POST" autocomplete="on" >
+            <div class="row align-items-center mb-2">
+                <div class="col-4">
+                    <label for="inputCode" class="col-form-label"><i class="fas fa-barcode"></i> Código</label>
+                </div>
+                <div class="col-8">
+                    <input th:field="*{idCode}" type="text" class="form-control" value="" id="inputCode">
+                </div>
             </div>
-        </div>
-    </form>
+            <div class="row align-items-center mb-2">
+                <div class="col-4">
+                    <label for="inputNamePro" class="col-form-label"> <i class="fas fa-signature"></i> Nombre</label>
+                </div>
+                <div class="col-8">
+                    <input th:field="*{productName}" type="text"  class="form-control" value="" id="inputNamePro">
+                </div>
+            </div>
+            <div class="row align-items-center mb-2">
+                <div class="col-4">
+                    <label for="inputNIT" class="col-form-label"><i class="fas fa-id-card"></i> NIT</label>
+                </div>
+                <div class="col-8">
+                    <input th:field="*{idProvider}" type="text" class="form-control" value="" id="inputNIT">
+                </div>
+            </div>
+            <div class="row align-items-center mb-2">
+                <div class="col-4">
+                    <label for="inputPrice" class="col-form-label"><i class="fas fa-hand-holding-usd"></i> Precio</label>
+                </div>
+                <div class="col-8">
+                    <input th:field="*{priceProduct}" type="text" class="form-control" value="" id="inputPrice">
+                </div>
+            </div>
+            <div class="row align-items-center mb-2">
+                <div class="col-4">
+                    <label for="inputIVA" class="col-form-label"><i class="fas fa-search-dollar"></i> IVA</label>
+                </div>
+                <div class="col-8">
+                    <input th:field="*{iva}" type="text"  class="form-control" id="inputIVA">
+                </div>
+            </div>
+            <div class="row align-items-center mb-2">
+                <div class="col-4">
+                    <label for="inputPriceSell" class="col-form-label"><i class="fas fa-dollar-sign"></i> Precio Venta</label>
+                </div>
+                <div class="col-8">
+                    <input th:field="*{priceSell}" type="text" class="form-control" value="" id="inputPriceSell">
+                </div>
+            </div>
+
+
+            <div class="row mt-4">
+                <div>
+                    <input type="submit" value="Guardar" class="btn btn-success">
+                    <a th:href="@{/producto/listar}" class="btn btn-danger">Cancelar</a>
+                </div>
+            </div>
+        </form>
+    </div>
 </div>
+
 <script src="https://kit.fontawesome.com/62ea397d3a.js" crossorigin="anonymous"></script>
 </body>
 </html>

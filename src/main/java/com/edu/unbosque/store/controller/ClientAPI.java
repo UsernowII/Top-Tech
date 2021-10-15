@@ -24,7 +24,7 @@ public class ClientAPI {
 
     @GetMapping("/cliente/listar")
     public String read(Model model){
-        List<Client> clientsList = clientService.listar();
+        List<Client> clientsList = clientService.listClients();
         model.addAttribute("clients",clientsList);
         return "clients";
     }

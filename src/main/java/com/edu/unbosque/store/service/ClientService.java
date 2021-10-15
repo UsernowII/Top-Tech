@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface ClientService {
 
-     List<Client> listar();
+     List<Client> listClients();
 
      Client getClientId(Client client);
 

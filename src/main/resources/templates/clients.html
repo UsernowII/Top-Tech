@@ -24,7 +24,8 @@
 
   <!-- RESULTADOS TABLA -->
   <div class="container mt=4 mt=4 table-responsive-lg">
-    <a th:href="@{/cliente/nuevo}" class="btn btn-dark my-3 py-2 text-center"> <i class="fas fa-circle"></i> Agregar</a>
+    <a th:href="@{/cliente/nuevo}" class="btn btn-dark my-3 py-2 text-center">
+      <i class="fas fa-plus-circle"></i> Agregar</a>
     <table class="table table-light table-hover">
       <thead>
       <tr>
@@ -45,7 +46,7 @@
         <td th:text="${c.phoneClient}"></td>
         <td>
           <a th:href="@{/cliente/editar/} + ${c.idCode}" class="btn btn-warning" ><i class="fas fa-edit"></i></a>
-          <a  th:onclick="clientDelete([[${c.idCode}]])" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+          <a  th:onclick="clientDelete([[${c.idCode}]])" class="btn btn-danger"  ><i class="fas fa-trash"></i></a>
         </td>
       </tr>
       </tbody>

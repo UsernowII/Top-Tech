@@ -21,7 +21,7 @@ public class UserServiceImp implements UserService{
 
 
     @Override
-    public List<User> listar() {
+    public List<User> listUsers() {
         return (List<User>) data.findAll();
     }
 

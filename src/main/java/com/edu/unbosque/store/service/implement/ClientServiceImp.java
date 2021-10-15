@@ -11,7 +11,6 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 
-
 @Service
 public class ClientServiceImp implements ClientService {
 
@@ -21,7 +20,7 @@ public class ClientServiceImp implements ClientService {
 	
 	
 	@Override
-	public List<Client> listar() {
+	public List<Client> listClients() {
 		return (List<Client>) data.findAll();
 	}
 	

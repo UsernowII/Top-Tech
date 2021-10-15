@@ -3,11 +3,11 @@ package com.edu.unbosque.store.util;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 public class Encrypt {
+    /**
+    public static void main(String[] args) {
 
-    /**public static void main(String[] args) {
 
-
-        String password = "12345";
+        String password = "123456";
         System.out.println("Password: " + password);
         System.out.println("password encriptado: "+ encryptPassword(password));
 

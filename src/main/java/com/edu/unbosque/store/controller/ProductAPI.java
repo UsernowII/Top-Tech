@@ -23,7 +23,7 @@ public class ProductAPI {
 
     @GetMapping("/producto/listar")
     public String read(Model model){
-        List<Product> products = service.listar();
+        List<Product> products = service.listProducts();
         model.addAttribute("products",products);
         return "products";
     }

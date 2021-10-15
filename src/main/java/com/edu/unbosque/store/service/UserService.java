@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface UserService {
 
-     List<User> listar();
+     List<User> listUsers();
 
      User getUserId(User user);
 
