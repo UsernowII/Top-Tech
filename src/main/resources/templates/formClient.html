@@ -33,33 +33,44 @@
                     <input th:field="*{idCode}" type="text" id="inputId" class="form-control" value="">
                 </div>
             </div>
-            <div class="row mb-2">
-                <!--<label class="col-form-label col-sm-2">Nombre</label>-->
-                <div class="col-sm-12">
-                    <input th:field="*{nameClient}" type="text"  class="form-control" value="" placeholder="Nombre">
+            <div class="row align-items-center mb-2">
+                <div class="col-4">
+                    <label for="inputNombre" class="col-form-label"><i class="fas fa-signature"></i> Nombre</label>
+                </div>
+                <div class="col-8">
+                    <input th:field="*{nameClient}" type="text" id="inputNombre" class="form-control" value="">
                 </div>
             </div>
-            <div class="row mb-2">
-                <!--<label  class="col-form-label col-sm-2">Correo</label>-->
-                <div class="col-sm-12">
-                    <input th:field="*{phoneClient}" type="text" class="form-control" placeholder="Telefono">
+            <div class="row align-items-center mb-2">
+                <div class="col-4">
+                    <label for="inputPhone" class="col-form-label"><i class="fas fa-phone-alt"></i> Teléfono</label>
+                </div>
+                <div class="col-8">
+                    <input th:field="*{phoneClient}" type="text" id="inputPhone" class="form-control">
                 </div>
             </div>
-            <div class="row mb-2">
-                <!--<label  class="col-form-label col-sm-2">Usuario</label>-->
-                <div class="col-sm-12">
-                    <input th:field="*{emailClient}" type="email"  class="form-control" placeholder="Correo electronico">
+            <div class="row align-items-center mb-2">
+                <div class="col-4">
+                    <label for="inputEmail" class="col-form-label"><i class="fas fa-envelope"></i> Email</label>
+                </div>
+                <div class="col-8">
+                    <input th:field="*{emailClient}" type="email" id="inputEmail" class="form-control">
                 </div>
             </div>
-            <div class="row mb-2">
-                <!--<label class="col-form-label col-sm-2">Password</label>-->
-                <div class="col-sm-12">
-                    <input th:field="*{addressClient}" type="text" class="form-control" placeholder="Direccion">
+            <div class="row align-items-center mb-2">
+                <div class="col-4">
+                    <label for="inputAddress" class="col-form-label"><i class="fas fa-map-marker-alt"></i> Direccion</label>
+                </div>
+                <div class="col-8">
+                    <input th:field="*{addressClient}" type="text" id="inputAddress" class="form-control">
                 </div>
             </div>
-            <div class="row mb-2">
-                <div class="col-sm-12">
-                    <input th:field="*{phoneClient}" type="text" class="form-control" placeholder="Teléfono">
+            <div class="row align-items-center mb-2">
+                <div class="col-4">
+                    <label for="inputEmail" class="col-form-label"><i class="fas fa-envelope"></i> Email</label>
+                </div>
+                <div class="col-8">
+                    <input th:field="*{emailClient}" type="email" id="inputEmail" class="form-control">
                 </div>
             </div>
 
