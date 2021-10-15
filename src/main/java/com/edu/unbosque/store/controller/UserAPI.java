@@ -1,11 +1,15 @@
 package com.edu.unbosque.store.controller;
 
+import com.edu.unbosque.store.model.Rol;
 import com.edu.unbosque.store.service.UserService;
 
 
 import com.edu.unbosque.store.model.User;
+import com.edu.unbosque.store.util.Encrypt;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
@@ -15,6 +19,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RequestMapping
@@ -23,7 +28,6 @@ public class UserAPI {
 
     @Autowired
     private UserService userService;
-
 
     @GetMapping("/usuario/listar")
     public String read(Model model){
@@ -41,6 +45,10 @@ public class UserAPI {
 
     @PostMapping("/usuario/guardar")
     public String save(@Validated User p, Model model) {
+        Encrypt encrypt = new Encrypt();
+        String hashPass = encrypt.encryptPassword(p.getPassword());
+        p.setPassword(hashPass);
+
         userService.save(p);
         return "redirect:/usuario/listar";
     }
