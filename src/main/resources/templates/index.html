@@ -10,7 +10,7 @@
     <title>Login Tech Store · Tienda de Tecnología</title>
 </head>
 <body>
-<div class="container mt-4 mx-auto">
+<div class="container-lg mt-4 mx-auto">
 
     <header>
         <div id="logo" class="logo">
@@ -19,7 +19,7 @@
     </header>
 
 
-    <section class="col-4 mx-auto mt-5 formulario">
+    <section class="col-md-5 col-md-offset-5 mx-auto mt-5 formulario">
         <form th:action="@{/login}" method="POST">
             <div class="mb-2 input_container">
                 <i class="fas fa-user icon"></i>
@@ -33,14 +33,14 @@
         </form>
     </section>
 
-    <div th:if="${param.error}" class="alert alert-danger  align-items-center my-3" role="alert">
+    <div th:if="${param.error}" class="alert alert-danger align-items-center my-3 col-md-6 mx-auto" role="alert">
         <div>
-            El nombre de usuario o contraseña es incorrecto.
+            <i class="fas fa-exclamation-triangle"></i> El nombre de usuario o contraseña es incorrecto.
         </div>
     </div>
-    <div th:if="${param.logout}" class="alert alert-success align-text-center my-3" role="alert">
+    <div th:if="${param.logout}" class="alert alert-success align-text-center my-3 col-md-6 mx-auto" role="alert">
         <div>
-            Ha sido desconectado, vuelva pronto!.
+            <i class="fas fa-check-circle"></i> Ha sido desconectado ¡Vuelva pronto!
         </div>
     </div>
 </div> <!-- END class="container" -->

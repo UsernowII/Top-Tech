@@ -23,7 +23,7 @@
 
 
     <div class="container mt=4 mt=4 table-responsive-lg">
-        <a th:href="@{/proveedor/nuevo}" class="btn btn-dark my-3 py-2 text-center"> <i class="fas fa-plus"></i> Agregar</a>
+        <a th:href="@{/proveedor/nuevo}" class="btn btn-dark my-3 py-2 text-center"><i class="fas fa-plus-circle"></i> Agregar</a>
         <table class="table table-light table-hover">
             <thead>
             <tr>
@@ -43,8 +43,8 @@
                     <td th:text="${p.addressProvider}"></td>
                     <td th:text="${p.phone}"></td>
                     <td>
-                        <a th:href="@{/proveedor/editar/}+${p.idProvider}" class="btn btn-warning" >Editar</a>
-                        <a  th:onclick="providerDelete([[${p.idProvider}]])" class="btn btn-danger">Eliminar</a>
+                        <a th:href="@{/proveedor/editar/}+${p.idProvider}" class="btn btn-warning" ><i class="fas fa-edit"></i></a>
+                        <a  th:onclick="providerDelete([[${p.idProvider}]])" class="btn btn-danger"><i class="fas fa-trash"></i></a>
                     </td>
                 </tr>
             </tbody>
