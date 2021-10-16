@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" >
+  <link rel="stylesheet" href="../static/css/nav.css" th:href="@{/css/nav.css}">
+  <link rel="stylesheet" href="../static/css/form.css" th:href="@{/css/form.css}">
+  <link rel="stylesheet" href="../static/css/tables.css" th:href="@{/css/tables.css}">
+  <title>REPORTE VENTAS</title>
+</head>
+<body>
+
+<!-- CONTAINER -->
+<div class="container-lg">
+
+  <!-- MENU NAV-->
+  <header th:replace="nav::header">  </header>
+  <!-- END MENU NAV -->
+
+  <!-- TITULO -->
+  <h1>REPORTE VENTAS POR CLIENTE</h1>
+  <!-- END TITULO -->
+
+  <!-- RESULTADOS TABLA -->
+  <div class="container mt=4 mt=4 table-responsive-lg">
+
+    <table class="table table-light table-hover">
+      <thead>
+      <tr>
+        <th>FACTURA No.</th>
+        <th>CEDULA CLIENTE</th>
+        <th>NOMBRE CLIENTE</th>
+        <th>VALOR ANTES IVA</th>
+        <th>IVA</th>
+        <th>VALOR FACTURA</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="report:${reportsByClient}">
+        <td th:text="${report.saleCode}"></td>
+        <td th:text="${report.idClient}"></td>
+        <td th:text="${report.nameClient}"></td>
+        <td th:text="${report.salePrice}"></td>
+        <td th:text="${report.saleIVA}"></td>
+        <td th:text="${report.salePriceTotal}"></td>
+      </tr>
+      </tbody>
+    </table>
+
+  </div>
+  <!-- RESULTADOS TABLA -->
+
+</div>
+<!-- END CONTAINER -->
+
+<footer th:replace="nav::footer"></footer>
+<script src="https://kit.fontawesome.com/62ea397d3a.js" crossorigin="anonymous"></script>
+<script src="https:/code.jquery.com/jquery-3.4.1.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="../static/js/alerts.js" type="text/javascript" th:src="@{/js/alerts.js}"></script>
+</body>
+</html>
