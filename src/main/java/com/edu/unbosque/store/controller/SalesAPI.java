@@ -8,7 +8,6 @@ import com.edu.unbosque.store.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -37,23 +36,8 @@ public class SalesAPI {
 
 
     @PostMapping("/venta/guardar")
-    public String saveInvoice(@Validated Invoice invoice, Model model) {
-        invoiceService.save(invoice);
+    public String saveInvoice(Invoice invoice, Model model) {
+        invoiceService.saveInvoice(invoice);
         return "redirect:/ventas";
     }
-
-    /**
-    @GetMapping("/producto/editar/{idCode}")
-    public String update(Product product, Model model) {
-        product = service.getProductId(product);
-        model.addAttribute("productNew", product);
-        return "formProduct";
-    }
-
-    @GetMapping("/producto/eliminar/{id}")
-    public String delete(Model model, @PathVariable long id) {
-        service.delete(id);
-        return "redirect:/producto/listar";
-    }*/
-
 }

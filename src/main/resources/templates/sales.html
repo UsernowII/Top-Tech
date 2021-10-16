@@ -1,16 +1,14 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale1">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" >
-  <link rel="stylesheet" href="../static/css/nav.css" th:href="@{/css/nav.css}">
-  <link rel="stylesheet" href="../static/css/form.css" th:href="@{/css/form.css}">
-  <link rel="stylesheet" href="../static/css/tables.css" th:href="@{/css/tables.css}">
-  <title>VENTAS</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/nav.css" th:href="@{/css/nav.css}">
+    <link rel="stylesheet" href="../static/css/form.css" th:href="@{/css/form.css}">
+    <link rel="stylesheet" href="../static/css/tables.css" th:href="@{/css/tables.css}">
+    <title>VENTAS</title>
 </head>
 
 <body onload="showHour()">
@@ -18,186 +16,250 @@
 <!-- CONTAINER -->
 <div class="container-lg">
 
-  <!-- MENU-->
-  <header th:replace="nav::header"></header>
-  <!-- END MENU -->
+    <!-- MENU-->
+    <header th:replace="nav::header"></header>
+    <!-- END MENU -->
 
-  <!-- TITULO -->
-  <h1>VENTAS</h1>
-  <!-- END TITULO -->
-
-
-<form th:action ="@{/saveFactura}"  method="POST">
-
-  <div class="mt-4 table-responsive-lg row Contenido_Ventas_Informacion">
-    <div class="col-md-6 col-sm-12">
-      <table class="table table-light tabla_Datos">
-        <tr>
-          <td>Usuario</td>
-          <td>
-            <select id="selectUsuario" onchange="completarUsuario()" class="form-select">
-              <option value="0">Seleccione el usuario:</option>
-              <option th:each="u: ${usuarios}" th:text="${u.nombre_Usuario}" th:value="${u.cedula_Usuario}"></option>
-            </select>
-          </td>
-          <td>
-            <input id="inputUsuario" class="form-control" type="text" name="cedula_Usu_Vta" >
-          </td>
-        </tr>
-        <tr>
-          <td>Cliente</td>
-          <td>
-            <select id="selectCliente" onchange="completarCliente()" class="form-select">
-              <option value="0">Seleccione el cliente:</option>
-              <option th:each="c: ${clientes}" th:text="${c.nombre_Cliente}" th:value="${c.cedula_Cliente}" ></option>
-            </select>
-            <input id="nombre_Cli_Vta" name="nombre_Cli_Vta" type="hidden" value="" />
-          </td>
-          <td><input id="inputCliente" class="form-control" type="text" name="cedula_Cli_Vta" ></td>
-        </tr>
-        <tr>
-          <td>Fecha y Hora</td>
-          <td><input id="FechaActual" type="text" name="datos_Fecha" class="form-control"></td>
-          <td><input id="HoraActual" type="text" name="datos_Hora" class="form-control"></td>
-        </tr>
-      </table>
-    </div>
-    
-    <div class="col-md-6 col-sm-12">
-      <table class="table table-light tabla_CodigoTotales">
-        <tr>
-          <td>Factura</td>
-          <td><input type="text" name="codigo_Vta" class="form-control" style="text-align: center;"></td>
-        </tr>
-        <tr>
-          <td><label>Valor Factura </label></td>
-          <td><input style="text-align: left" id="datoValorFactura" type="text" name="" class="form-control"></td>
-        </tr>
-
-        <tr>
-          <td><label>Valor IVA </label></td>
-          <td><input style="text-align: left" id="datoValorIVA" type="text" name="" class="form-control"></td>
-        </tr>
-      </table>
-    </div>
-
-  </div>
-  <br><br>
-  <div class="Contenido_Ventas_Factura">
-    <table class="table table-light tabla_Factura ">
-      <thead>
-        <tr>
-          <th class="bordes_Tabla color_Gris">COD. PRODUCTO</th>
-          <th class="bordes_Tabla color_Gris">NOMBRE PRODUCTO</th>
-          <th class="bordes_Tabla color_Gris">PRECIO VENTA</th>
-          <th class="bordes_Tabla color_Gris">CANTIDAD</th>
-          <th class="bordes_Tabla color_Gris">VALOR TOTAL</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-
-        <tr>
-          <td class="bordes_Tabla"><input id="inputProducto1" type="text" name="cod_Producto" class="form-control" disabled="disabled"></td>
-          <td class="bordes_Tabla">
-            <select id="selectProducto1" onchange="completarProducto1()" class="form-select">
-              <option value="0">Seleccione el producto:</option>
-              <option th:each="p: ${productos}" th:text="${p.nombre_Producto}" th:value="${p.codigo_Producto}"></option>
-            </select>
-          </td>
-
-          <td class="bordes_Tabla"><input id="precio_SinIVA1" class="form-control" style="text-align: right; padding-right: 30px;" type="text" name="precio_SinIVA" disabled="disabled"></td>
-
-          <td class="bordes_Tabla"><input id="cantidadProducto1" onchange="hallarValorTotalSinIVA1()" class="form-control" style="text-align: center;" type="text" name="cantidad"></td>
-
-          <td class="bordes_Tabla"><input id="inputTotalSinIVA1" class="form-control" style="text-align: right; padding-right: 30px;" type="text" name="valor_sinIVA"></td>
-
-          <td style="text-align: center;"><button
-                  onclick="eliminarFilaProducto1()" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button></td>
-
-        </tr>
-
-        <tr>
-          <td class="bordes_Tabla"><input id="inputProducto2" type="text" name="cod_Producto" class="form-control" disabled="disabled"></td>
-          <td class="bordes_Tabla">
-            <select id="selectProducto2" onchange="completarProducto2()" class="form-select">
-              <option value="0">Seleccione el producto:</option>
-              <option th:each="p: ${productos}" th:text="${p.nombre_Producto}" th:value="${p.codigo_Producto}"></option>
-            </select>
-          </td>
-
-          <td class="bordes_Tabla"><input id="precio_SinIVA2" class="form-control" style="text-align: right; padding-right: 30px;" type="text" name="precio_SinIVA" disabled="disabled"></td>
-
-          <td class="bordes_Tabla"><input id="cantidadProducto2" onchange="hallarValorTotalSinIVA2()" class="form-control" style="text-align: center;" type="text" name="cantidad"></td>
-
-          <td class="bordes_Tabla"><input id="inputTotalSinIVA2" class="form-control" style="text-align: right; padding-right: 30px;" type="text" name="valor_sinIVA"></td>
-
-          <td style="text-align: center;"><button
-                  onclick="eliminarFilaProducto2()" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button></td>
-        </tr>
-
-        <tr>
-          <td class="bordes_Tabla"><input id="inputProducto3" type="text" name="cod_Producto" class="form-control" disabled="disabled"></td>
-          <td class="bordes_Tabla">
-            <select id="selectProducto3" onchange="completarProducto3()" class="form-select">
-              <option value="0">Seleccione el producto:</option>
-              <option th:each="p: ${productos}" th:text="${p.nombre_Producto}" th:value="${p.codigo_Producto}"></option>
-            </select>
-          </td>
-
-          <td class="bordes_Tabla"><input id="precio_SinIVA3" class="form-control" style="text-align: right; padding-right: 30px;" type="text" name="precio_SinIVA" disabled="disabled"></td>
-
-          <td class="bordes_Tabla"><input id="cantidadProducto3" onchange="hallarValorTotalSinIVA3()" class="form-control" style="text-align: center;" type="text" name="cantidad"></td>
-
-          <td class="bordes_Tabla"><input id="inputTotalSinIVA3" class="form-control" style="text-align: right; padding-right: 30px;" type="text" name="valor_sinIVA"></td>
-          <td style="text-align: center;"><button onclick="eliminarFilaProducto1()" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> </button></td>
-        </tr>
-
-        <tr>
-          <td rowspan="3 " colspan="3"></td>
-          <td class="bordes_Tabla"><label class="padding-left" for="sub_Total_Factura"> Sub. Total Factura </label></td>
-          <td class="bordes_Tabla"><input  id="inputSubTotalSinIVA" class="form-control"  style="text-align: right; padding-right: 30px;" type="text" name="valor_Vta"></td>
-          <td></td>
-        </tr>
-        <tr>
-
-          <td class="bordes_Tabla" style="border-width: 0;"><label class="padding-left" for="valor_IVA"> Valor IVA </label></td>
-          <td class="bordes_Tabla"><input  id="inputValorIVA" class="form-control" style="text-align: right; padding-right: 30px;" type="text" name="valor_IVA"></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td class="bordes_Tabla" style="background-color: rgba(3,83,145,1); color: #fff; border-top-left-radius: 30px; border-bottom-left-radius: 30px; border-width: 0;padding-left: 30px; text-transform: uppercase;"><label class="padding-left" for="total_Factura"><strong>Total Factura</strong> </label></td>
-          <td class="bordes_Tabla" style="background-color: rgba(3,83,145,1);"><input  id="inputValorTotalFactura" class="form-control" style="text-align: right; padding-right: 30px;" type="text" name="valor_Total"></td>
-          <td style="text-align: center; background-color: rgba(3,83,145,1); border-bottom-right-radius: 30px; border-top-right-radius: 30px;"><button type="submit" name="consultar_Usuarios" class="btn btn-success">Facturar</button></td>
-        </tr>
-      </tbody>
-    </table>
+    <!-- TITULO -->
+    <h1>VENTAS</h1>
+    <!-- END TITULO -->
 
 
-  </div>
+    <form th:action="@{/venta/guardar}" method="POST">
 
-</form>
+        <div class="mt-4 table-responsive-lg row Contenido_Ventas_Informacion">
+            <div class="col-md-6 col-sm-12">
+                <table class="table table-light tabla_Datos">
+                    <tr>
+                        <td>Usuario</td>
+                        <td>
+                            <select id="selectUser" onchange="completeUser()" class="form-select">
+                                <option value="0">Seleccione el usuario:</option>
+                                <option th:each="u: ${users}" th:text="${u.name}"
+                                        th:value="${u.id}"></option>
+                            </select>
+                            <input id="name_user_sale" name="name_user_sale" type="hidden" value=""/>
+                        </td>
+                        <td>
+                            <input id="idUser" class="form-control" type="text" name="idUser" readonly="readonly">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Cliente</td>
+                        <td>
+                            <select id="selectCliente" onchange="completeClient()" class="form-select">
+                                <option value="0">Seleccione el cliente:</option>
+                                <option th:each="c: ${clients}" th:text="${c.nameClient}"
+                                        th:value="${c.idCode}"></option>
+                            </select>
+                            <input id="name_client" name="nameClient" type="hidden" value=""/>
+                        </td>
+                        <td>
+                            <input id="inputIdClient" class="form-control" type="text" name="idClient" readonly="readonly">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Fecha y Hora</td>
+                        <td><input id="currentDate" type="text" name="data_date" class="form-control"></td>
+                        <td><input id="currentTime" type="text" name="data_time" class="form-control" readonly="readonly"></td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="col-md-6 col-sm-12">
+                <table class="table table-light tabla_CodigoTotales">
+                    <tr>
+                        <td>Factura</td>
+                        <td>
+                            <input type="text" name="saleCode" class="form-control" style="text-align: right;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label>Valor Factura </label></td>
+                        <td><input style="text-align: right" id="datoValorFactura" type="text" name=""
+                                   class="form-control" disabled="disabled"></td>
+                    </tr>
+
+                    <tr>
+                        <td><label>Valor IVA </label></td>
+                        <td><input style="text-align: right" id="datoValorIVA" type="text" name=""
+                                   class="form-control" disabled="disabled">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+        <br><br>
+        <div class="Contenido_Ventas_Factura">
+            <table class="table table-light tabla_Factura ">
+                <thead>
+                <tr>
+                    <th class="bordes_Tabla color_Gris">COD. PRODUCTO</th>
+                    <th class="bordes_Tabla color_Gris">NOMBRE PRODUCTO</th>
+                    <th class="bordes_Tabla color_Gris">PRECIO VENTA</th>
+                    <th class="bordes_Tabla color_Gris">CANTIDAD</th>
+                    <th class="bordes_Tabla color_Gris">VALOR TOTAL</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+
+                <tr>
+                    <td class="bordes_Tabla"><input id="inputProduct1" type="text" name="cod_Product"
+                                                    class="form-control" disabled="disabled"></td>
+                    <td class="bordes_Tabla">
+                        <select id="selectProduct1" onchange="completeProduct1()" class="form-select">
+                            <option value="0">Seleccione el producto:</option>
+                            <option th:each="p: ${products}" th:text="${p.productName}"
+                                    th:value="${p.idCode}"></option>
+                        </select>
+                    </td>
+
+                    <td class="bordes_Tabla">
+                        <input id="price_sale1" class="form-control" style="text-align: right; padding-right: 30px;"
+                               type="text"
+                               name="price_sale1" disabled="disabled">
+                    </td>
+
+                    <td class="bordes_Tabla">
+                        <input id="quantityProduct1" onchange="totalValueWithoutIVA1()"
+                               class="form-control" style="text-align: center;" type="text" name="quantity">
+                    </td>
+
+                    <td class="bordes_Tabla">
+                        <input id="price_withoutIVA1" class="form-control" style="text-align: right; padding-right: 30px;" type="text"
+                               name="price_withoutIVA1" readonly="readonly">
+                    </td>
+
+                    <td style="text-align: center;">
+                        <button
+                                onclick="deleteRow1()" class="btn btn-danger btn-sm"><i
+                                class="fas fa-trash"></i></button>
+                    </td>
+
+                </tr>
+
+                <tr>
+                    <td class="bordes_Tabla"><input id="inputProduct2" type="text" name="cod_Producto"
+                                                    class="form-control" disabled="disabled"></td>
+                    <td class="bordes_Tabla">
+                        <select id="selectProduct2" onchange="completeProduct2()" class="form-select">
+                            <option value="0">Seleccione el producto:</option>
+                            <option th:each="p: ${products}" th:text="${p.productName}"
+                                    th:value="${p.idCode}"></option>
+                        </select>
+                    </td>
+
+                    <td class="bordes_Tabla"><input id="price_sale2" class="form-control"
+                                                    style="text-align: right; padding-right: 30px;" type="text"
+                                                    name="precio_SinIVA" disabled="disabled"></td>
+
+                    <td class="bordes_Tabla"><input id="quantityProduct2" onchange="totalValueWithoutIVA2()"
+                                                    class="form-control" style="text-align: center;" type="text"
+                                                    name="quantity"></td>
+
+                    <td class="bordes_Tabla"><input id="price_withoutIVA2" class="form-control"
+                                                    style="text-align: right; padding-right: 30px;" type="text"
+                                                    name="price_withoutIVA2" readonly="readonly"></td>
+
+                    <td style="text-align: center;">
+                        <button
+                                onclick="eliminarFilaProducto2()" class="btn btn-danger btn-sm"><i
+                                class="fas fa-trash"></i></button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="bordes_Tabla"><input id="inputProduct3" type="text" name="cod_Producto"
+                                                    class="form-control" disabled="disabled"></td>
+                    <td class="bordes_Tabla">
+                        <select id="selectProduct3" onchange="completeProduct3()" class="form-select">
+                            <option value="0">Seleccione el producto:</option>
+                            <option th:each="p: ${products}" th:text="${p.productName}"
+                                    th:value="${p.idCode}"></option>
+                        </select>
+                    </td>
+
+                    <td class="bordes_Tabla"><input id="price_sale3" class="form-control"
+                                                    style="text-align: right; padding-right: 30px;" type="text"
+                                                    name="precio_SinIVA" disabled="disabled"></td>
+
+                    <td class="bordes_Tabla"><input id="quantityProduct3" onchange="totalValueWithoutIVA3()"
+                                                    class="form-control" style="text-align: center;" type="text"
+                                                    name="quantity"></td>
+
+                    <td class="bordes_Tabla"><input id="price_withoutIVA3" class="form-control"
+                                                    style="text-align: right; padding-right: 30px;" type="text"
+                                                    name="valor_sinIVA" readonly="readonly"></td>
+                    <td style="text-align: center;">
+                        <button onclick="eliminarFilaProducto3()" class="btn btn-danger btn-sm"><i
+                                class="fas fa-trash"></i></button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td rowspan="3 " colspan="3"></td>
+                    <td class="bordes_Tabla"><label class="padding-left" for="inputSubTotalNotIVA"> Sub. Total
+                        Factura </label></td>
+                    <td class="bordes_Tabla"><input id="inputSubTotalNotIVA" class="form-control"
+                                                    style="text-align: right; padding-right: 30px;" type="text"
+                                                    name="salePrice" readonly="readonly"></td>
+                    <td></td>
+                </tr>
+                <tr>
+
+                    <td class="bordes_Tabla" style="border-width: 0;"><label class="padding-left" for="inputTotalIVA"> Valor
+                        IVA </label></td>
+                    <td class="bordes_Tabla"><input id="inputTotalIVA" class="form-control"
+                                                    style="text-align: right; padding-right: 30px;" type="text"
+                                                    name="saleIVA" readonly="readonly"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="bordes_Tabla"
+                        style="background-color: rgba(3,83,145,1); color: #fff; border-top-left-radius: 30px; border-bottom-left-radius: 30px; border-width: 0;padding-left: 30px; text-transform: uppercase;">
+                        <label class="padding-left" for="inputGrandTotal"><strong>Total Factura</strong> </label></td>
+                    <td class="bordes_Tabla" style="background-color: rgba(3,83,145,1);"><input readonly="readonly"
+                            id="inputGrandTotal" class="form-control"
+                            style="text-align: right; padding-right: 30px;" type="text" name="salePriceTotal"></td>
+                    <td style="text-align: center; background-color: rgba(3,83,145,1); border-bottom-right-radius: 30px; border-top-right-radius: 30px;">
+                        <button type="submit" name="consultar_Usuarios" class="btn btn-success">Facturar</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+
+        </div>
+
+    </form>
+
+</div>
+<!-- END CONTAINER -->
+
+<footer th:replace="nav::footer"></footer>
 
 
 <script th:inline="javascript">
-  /*<![CDATA[*/
-  var productos = /*[[${productos}]]*/'default';
-  /*]]>*/
+    /*<![CDATA[*/
+    var products
+        = /*[[${products}]]*/'default';
+    /*]]>*/
 </script>
 <script src="https://kit.fontawesome.com/62ea397d3a.js" crossorigin="anonymous"></script>
 <script src="https:/code.jquery.com/jquery-3.4.1.js"></script>
-<script
-        src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="http://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<script src="funciones.js"></script>
+<script src="../static/js/functionsSales.js" type="text/javascript" th:src="@{/js/functionsSales.js}"></script>
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('input[type=text]').forEach( node => node.addEventListener('keypress', e => {
-      if(e.keyCode == 13) {
-        e.preventDefault();
-      }
-    }))
-  });
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('input[type=text]').forEach(node => node.addEventListener('keypress', e => {
+            if (e.keyCode == 13) {
+                e.preventDefault();
+            }
+        }))
+    });
 </script>
 
 

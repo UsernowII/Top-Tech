@@ -35,7 +35,7 @@ public class Invoice {
     private double saleIVA;
 
     @Getter @Setter @Column(name = "total_sale")
-    private double SalePriceTotal;
+    private double salePriceTotal;
 
 
 }
