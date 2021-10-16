@@ -85,89 +85,92 @@
   <br><br>
   <div class="Contenido_Ventas_Factura">
     <table class="table table-light tabla_Factura ">
+      <thead>
+        <tr>
+          <th class="bordes_Tabla color_Gris">COD. PRODUCTO</th>
+          <th class="bordes_Tabla color_Gris">NOMBRE PRODUCTO</th>
+          <th class="bordes_Tabla color_Gris">PRECIO VENTA</th>
+          <th class="bordes_Tabla color_Gris">CANTIDAD</th>
+          <th class="bordes_Tabla color_Gris">VALOR TOTAL</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
 
-      <tr>
-        <th class="bordes_Tabla color_Gris">Cod. Producto</th>
-        <th class="bordes_Tabla color_Gris">Nombre Producto</th>
-        <th class="bordes_Tabla color_Gris">Precio Venta</th>
-        <th class="bordes_Tabla color_Gris">Cantidad</th>
-        <th class="bordes_Tabla color_Gris">Vlr. Total</th>
-        <th></th>
-      </tr>
+        <tr>
+          <td class="bordes_Tabla"><input id="inputProducto1" type="text" name="cod_Producto" class="form-control" disabled="disabled"></td>
+          <td class="bordes_Tabla">
+            <select id="selectProducto1" onchange="completarProducto1()" class="form-select">
+              <option value="0">Seleccione el producto:</option>
+              <option th:each="p: ${productos}" th:text="${p.nombre_Producto}" th:value="${p.codigo_Producto}"></option>
+            </select>
+          </td>
 
-      <tr>
-        <td class="bordes_Tabla"><input id="inputProducto1" type="text" name="cod_Producto" class="form-control" disabled="disabled"></td>
-        <td class="bordes_Tabla">
-          <select id="selectProducto1" onchange="completarProducto1()" class="form-select">
-            <option value="0">Seleccione el producto:</option>
-            <option th:each="p: ${productos}" th:text="${p.nombre_Producto}" th:value="${p.codigo_Producto}"></option>
-          </select>
-        </td>
+          <td class="bordes_Tabla"><input id="precio_SinIVA1" class="form-control" style="text-align: right; padding-right: 30px;" type="text" name="precio_SinIVA" disabled="disabled"></td>
 
-        <td class="bordes_Tabla"><input id="precio_SinIVA1" class="form-control" style="text-align: right; padding-right: 30px;" type="text" name="precio_SinIVA" disabled="disabled"></td>
+          <td class="bordes_Tabla"><input id="cantidadProducto1" onchange="hallarValorTotalSinIVA1()" class="form-control" style="text-align: center;" type="text" name="cantidad"></td>
 
-        <td class="bordes_Tabla"><input id="cantidadProducto1" onchange="hallarValorTotalSinIVA1()" class="form-control" style="text-align: center;" type="text" name="cantidad"></td>
+          <td class="bordes_Tabla"><input id="inputTotalSinIVA1" class="form-control" style="text-align: right; padding-right: 30px;" type="text" name="valor_sinIVA"></td>
 
-        <td class="bordes_Tabla"><input id="inputTotalSinIVA1" class="form-control" style="text-align: right; padding-right: 30px;" type="text" name="valor_sinIVA"></td>
+          <td style="text-align: center;"><button
+                  onclick="eliminarFilaProducto1()" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button></td>
 
-        <td style="text-align: center;"><button
-                onclick="eliminarFilaProducto1()" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button></td>
+        </tr>
 
-      </tr>
+        <tr>
+          <td class="bordes_Tabla"><input id="inputProducto2" type="text" name="cod_Producto" class="form-control" disabled="disabled"></td>
+          <td class="bordes_Tabla">
+            <select id="selectProducto2" onchange="completarProducto2()" class="form-select">
+              <option value="0">Seleccione el producto:</option>
+              <option th:each="p: ${productos}" th:text="${p.nombre_Producto}" th:value="${p.codigo_Producto}"></option>
+            </select>
+          </td>
 
-      <tr>
-        <td class="bordes_Tabla"><input id="inputProducto2" type="text" name="cod_Producto" class="form-control" disabled="disabled"></td>
-        <td class="bordes_Tabla">
-          <select id="selectProducto2" onchange="completarProducto2()" class="form-select">
-            <option value="0">Seleccione el producto:</option>
-            <option th:each="p: ${productos}" th:text="${p.nombre_Producto}" th:value="${p.codigo_Producto}"></option>
-          </select>
-        </td>
+          <td class="bordes_Tabla"><input id="precio_SinIVA2" class="form-control" style="text-align: right; padding-right: 30px;" type="text" name="precio_SinIVA" disabled="disabled"></td>
 
-        <td class="bordes_Tabla"><input id="precio_SinIVA2" class="form-control" style="text-align: right; padding-right: 30px;" type="text" name="precio_SinIVA" disabled="disabled"></td>
+          <td class="bordes_Tabla"><input id="cantidadProducto2" onchange="hallarValorTotalSinIVA2()" class="form-control" style="text-align: center;" type="text" name="cantidad"></td>
 
-        <td class="bordes_Tabla"><input id="cantidadProducto2" onchange="hallarValorTotalSinIVA2()" class="form-control" style="text-align: center;" type="text" name="cantidad"></td>
+          <td class="bordes_Tabla"><input id="inputTotalSinIVA2" class="form-control" style="text-align: right; padding-right: 30px;" type="text" name="valor_sinIVA"></td>
 
-        <td class="bordes_Tabla"><input id="inputTotalSinIVA2" class="form-control" style="text-align: right; padding-right: 30px;" type="text" name="valor_sinIVA"></td>
+          <td style="text-align: center;"><button
+                  onclick="eliminarFilaProducto2()" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button></td>
+        </tr>
 
-        <td style="text-align: center;"><button
-                onclick="eliminarFilaProducto2()" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button></td>
-      </tr>
+        <tr>
+          <td class="bordes_Tabla"><input id="inputProducto3" type="text" name="cod_Producto" class="form-control" disabled="disabled"></td>
+          <td class="bordes_Tabla">
+            <select id="selectProducto3" onchange="completarProducto3()" class="form-select">
+              <option value="0">Seleccione el producto:</option>
+              <option th:each="p: ${productos}" th:text="${p.nombre_Producto}" th:value="${p.codigo_Producto}"></option>
+            </select>
+          </td>
 
-      <tr>
-        <td class="bordes_Tabla"><input id="inputProducto3" type="text" name="cod_Producto" class="form-control" disabled="disabled"></td>
-        <td class="bordes_Tabla">
-          <select id="selectProducto3" onchange="completarProducto3()" class="form-select">
-            <option value="0">Seleccione el producto:</option>
-            <option th:each="p: ${productos}" th:text="${p.nombre_Producto}" th:value="${p.codigo_Producto}"></option>
-          </select>
-        </td>
+          <td class="bordes_Tabla"><input id="precio_SinIVA3" class="form-control" style="text-align: right; padding-right: 30px;" type="text" name="precio_SinIVA" disabled="disabled"></td>
 
-        <td class="bordes_Tabla"><input id="precio_SinIVA3" class="form-control" style="text-align: right; padding-right: 30px;" type="text" name="precio_SinIVA" disabled="disabled"></td>
+          <td class="bordes_Tabla"><input id="cantidadProducto3" onchange="hallarValorTotalSinIVA3()" class="form-control" style="text-align: center;" type="text" name="cantidad"></td>
 
-        <td class="bordes_Tabla"><input id="cantidadProducto3" onchange="hallarValorTotalSinIVA3()" class="form-control" style="text-align: center;" type="text" name="cantidad"></td>
+          <td class="bordes_Tabla"><input id="inputTotalSinIVA3" class="form-control" style="text-align: right; padding-right: 30px;" type="text" name="valor_sinIVA"></td>
+          <td style="text-align: center;"><button onclick="eliminarFilaProducto1()" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> </button></td>
+        </tr>
 
-        <td class="bordes_Tabla"><input id="inputTotalSinIVA3" class="form-control" style="text-align: right; padding-right: 30px;" type="text" name="valor_sinIVA"></td>
-        <td style="text-align: center;"><button onclick="eliminarFilaProducto1()" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> </button></td>
-      </tr>
+        <tr>
+          <td rowspan="3 " colspan="3"></td>
+          <td class="bordes_Tabla"><label class="padding-left" for="sub_Total_Factura"> Sub. Total Factura </label></td>
+          <td class="bordes_Tabla"><input  id="inputSubTotalSinIVA" class="form-control"  style="text-align: right; padding-right: 30px;" type="text" name="valor_Vta"></td>
+          <td></td>
+        </tr>
+        <tr>
 
-      <tr>
-        <td rowspan="3 " colspan="3"></td>
-        <td class="bordes_Tabla"><label class="padding-left" for="sub_Total_Factura"> Sub. Total Factura </label></td>
-        <td class="bordes_Tabla"><input  id="inputSubTotalSinIVA" class="form-control"  style="text-align: right; padding-right: 30px;" type="text" name="valor_Vta"></td>
-        <td></td>
-      </tr>
-      <tr>
-
-        <td class="bordes_Tabla" style="border-width: 0;"><label class="padding-left" for="valor_IVA"> Valor IVA </label></td>
-        <td class="bordes_Tabla"><input  id="inputValorIVA" class="form-control" style="text-align: right; padding-right: 30px;" type="text" name="valor_IVA"></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td class="bordes_Tabla" style="background-color: rgba(3,83,145,1); color: #fff; border-top-left-radius: 30px; border-bottom-left-radius: 30px; border-width: 0;padding-left: 30px; text-transform: uppercase;"><label class="padding-left" for="total_Factura"><strong>Total Factura</strong> </label></td>
-        <td class="bordes_Tabla" style="background-color: rgba(3,83,145,1);"><input  id="inputValorTotalFactura" class="form-control" style="text-align: right; padding-right: 30px;" type="text" name="valor_Total"></td>
-        <td style="text-align: center; background-color: rgba(3,83,145,1); border-bottom-right-radius: 30px; border-top-right-radius: 30px;"><button type="submit" name="consultar_Usuarios" class="btn btn-success">Facturar</button></td>
-      </tr>
+          <td class="bordes_Tabla" style="border-width: 0;"><label class="padding-left" for="valor_IVA"> Valor IVA </label></td>
+          <td class="bordes_Tabla"><input  id="inputValorIVA" class="form-control" style="text-align: right; padding-right: 30px;" type="text" name="valor_IVA"></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td class="bordes_Tabla" style="background-color: rgba(3,83,145,1); color: #fff; border-top-left-radius: 30px; border-bottom-left-radius: 30px; border-width: 0;padding-left: 30px; text-transform: uppercase;"><label class="padding-left" for="total_Factura"><strong>Total Factura</strong> </label></td>
+          <td class="bordes_Tabla" style="background-color: rgba(3,83,145,1);"><input  id="inputValorTotalFactura" class="form-control" style="text-align: right; padding-right: 30px;" type="text" name="valor_Total"></td>
+          <td style="text-align: center; background-color: rgba(3,83,145,1); border-bottom-right-radius: 30px; border-top-right-radius: 30px;"><button type="submit" name="consultar_Usuarios" class="btn btn-success">Facturar</button></td>
+        </tr>
+      </tbody>
     </table>
 
 
