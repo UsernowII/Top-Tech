@@ -22,3 +22,10 @@ thead th:last-child {
     font-family: 'Baloo 2', sans-serif;
     width: 48%;
 }
+
+.size-column{
+    max-width: 5px;
+    overflow: hidden;
+    padding-left: 2px;
+    text-align: justify;
+}

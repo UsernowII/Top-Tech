@@ -49,8 +49,8 @@ public class ProviderAPI {
     }
 
     @GetMapping("/proveedor/eliminar/{idProvider}")
-    public String delete(Model model, @PathVariable long id) {
-        service.delete(id);
+    public String delete(Model model, @PathVariable long idProvider) {
+        service.delete(idProvider);
         return "redirect:/proveedor/listar";
     }
 
