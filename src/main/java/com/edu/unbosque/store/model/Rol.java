@@ -10,7 +10,7 @@ import java.io.Serializable;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "rol")
+@Table(name = "roles")
 public class Rol implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -18,11 +18,10 @@ public class Rol implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Getter @Setter @Column(name = "id_rol")
-    private Long idRol;
+    private Long idUserRol;
 
 
-
-    @Getter @Setter
-    private String name;
+    @Getter @Setter @Column(name = "name_Rol")
+    private String userNameRol;
 
 }

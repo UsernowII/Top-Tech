@@ -35,9 +35,10 @@ public class UserLoginImpl implements UserDetailsService {
             throw new UsernameNotFoundException(username); // si no lo encuentra arroja una excepciòn con el usuario no encontrado
         }
 
+
         List roles = new ArrayList<GrantedAuthority>(); // envoltura grantedAuthority para poder usar roles con JPA
         for (Rol rol: userFind.getRoles()) {
-            roles.add(new SimpleGrantedAuthority(rol.getName())); // por cada rol del usuario se va a envolver en un tipo simpleGrandAuthority
+            roles.add(new SimpleGrantedAuthority(rol.getUserNameRol())); // por cada rol del usuario se va a envolver en un tipo simpleGrandAuthority
         }
 
         return new org.springframework.security.core.userdetails.User(userFind.getUsername(), userFind.getPassword(),roles);

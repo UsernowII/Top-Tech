@@ -32,7 +32,7 @@ public class User {
     @Getter @Setter @Column(name = "user")
     private String username;
 
-    @OneToMany  // relacion uno a muchos / user puede tener muchos roles
+    @OneToMany // relacion uno a muchos / user puede tener muchos roles
     @JoinColumn(name = "id_user") //tabla Rol foreign key
     @Getter @Setter
     private List<Rol> roles;

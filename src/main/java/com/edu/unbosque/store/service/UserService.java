@@ -1,5 +1,6 @@
 package com.edu.unbosque.store.service;
 
+import com.edu.unbosque.store.model.Rol;
 import com.edu.unbosque.store.model.User;
 
 

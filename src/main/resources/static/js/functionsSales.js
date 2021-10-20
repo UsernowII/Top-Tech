@@ -154,3 +154,15 @@ function deleteRow1() {
     document.getElementById("price_withoutIVA1").value = "";
 }
 
+
+// NUEVA FUNCION
+function selectRole() {
+    var idrolUser = document.getElementById("inputId").value;
+    var rolUserName = document.getElementById("selectRol").selectedOptions[0].text;
+    document.getElementById("inputIdRolUser").value = idrolUser;
+    document.getElementById("inputRolUserName").value = rolUserName;
+    console.log(rolUserName);
+    console.log(idrolUser);
+
+}
+
