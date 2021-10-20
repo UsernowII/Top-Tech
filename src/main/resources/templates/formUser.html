@@ -64,7 +64,7 @@
                 </div>
             </div>
             <div class="row mt-4">
-                <div>
+                <div >
                     <input type="submit" value=" Guardar" class="btn btn-success">
                     <a th:href="@{/usuario/listar}" class="btn btn-danger">Cancelar</a>
                 </div>
@@ -73,12 +73,55 @@
     </div>
     <!-- END FORM -->
 
+    <!--  SEELCT ROLES -->
+    <div class="row align-items-center mb-2">
+        <div class="col-4">
+            <label for="selectRol" class="col-form-label"><i class="fas fa-key"></i> Rol</label>
+        </div>
+        <div class="col-8">
+            <form th:action="@{/rol/guardar}"  method="post">
+                <select onchange="selectRole()"  id="selectRol" class="form-control-sm" >
+                    <!--<option th:each="r:${sRoles}"
+                            th:value="${r.idUserRol}"
+                            th:text="${r.idNameRol}"></option>-->
+                    <option value="">Seleccione el rol</option>
+                    <option value="">ADMIN_ROLE</option>
+                    <option value="">USER_ROLE</option>-->
+                </select>
+                <div class="row mt-4">
+                    <div >
+                        <input type="submit" value="Agregar" class="btn btn-success">
+                        <input   id="inputIdRolUser" name="idUserRol" type="hidden" value=""/>
+                        <input id="inputRolUserName" name="userNameRol" type="hidden" value=""/>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
 
 </div>
 <!-- END CONTAINER -->
 
 
 <footer th:replace="nav::footer"></footer>
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    var sRoles
+        = /*[[${listRoles}]]*/'default';
+    /*]]>*/
+</script>
 <script src="https://kit.fontawesome.com/62ea397d3a.js" crossorigin="anonymous"></script>
+<script src="../static/js/functionsSales.js" type="text/javascript" th:src="@{/js/functionsSales.js}"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('input[type=text]').forEach(node => node.addEventListener('keypress', e => {
+            if (e.keyCode == 13) {
+                e.preventDefault();
+            }
+        }))
+    });
+</script>
 </body>
 </html>
