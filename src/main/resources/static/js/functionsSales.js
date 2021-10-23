@@ -147,11 +147,28 @@ function mapDataTotals() {
 //Clean Fields
 
 function deleteRow1() {
-    document.getElementById("inputProduct1").value = "";
-    document.getElementById("selectProduct1").value = "";
+    document.getElementById("inputProduct1").value = 0;
+    document.getElementById("selectProduct1").value = 0;
     document.getElementById("price_sale1").value = "";
     document.getElementById("quantityProduct1").value = "";
     document.getElementById("price_withoutIVA1").value = "";
+}
+
+function deleteRow2() {
+    document.getElementById("inputProduct2").value = 0;
+    document.getElementById("selectProduct2").value = 0;
+    document.getElementById("price_sale2").value = "";
+    document.getElementById("quantityProduct2").value = "";
+    document.getElementById("price_withoutIVA2").value = "";
+}
+
+
+function deleteRow3() {
+    document.getElementById("inputProduct3").value = 0;
+    document.getElementById("selectProduct3").value = 0;
+    document.getElementById("price_sale3").value = "";
+    document.getElementById("quantityProduct3").value = "";
+    document.getElementById("price_withoutIVA3").value = "";
 }
 
 

@@ -1,10 +1,6 @@
 package com.edu.unbosque.store.controller;
 
 
-import com.edu.unbosque.store.model.Invoice;
-import com.edu.unbosque.store.model.Product;
-import com.edu.unbosque.store.model.Rol;
-import com.edu.unbosque.store.service.RolService;
 import com.edu.unbosque.store.service.UserService;
 
 
@@ -26,8 +22,7 @@ public class UserAPI {
 
     @Autowired
     private UserService userService;
-    @Autowired
-    private RolService rolService;
+
 
     @GetMapping("/usuario/listar")
     public String read(Model model){
@@ -64,12 +59,6 @@ public class UserAPI {
     public String delete(Model model, @PathVariable long id) {
         userService.delete(id);
         return "redirect:/usuario/listar";
-    }
-
-    @PostMapping("/rol/guardar")
-    public void addRol(@Validated Rol rol, Model model) {
-        rolService.save(rol);
-
     }
 
 }
